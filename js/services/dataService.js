@@ -1,6 +1,6 @@
 ﻿define([], () => {
 
-    let AddTitle = (category, callback) => {
+    let AddTitle = (title, callback) => {
         let param = {
             method: "POST",
             body: JSON.stringify(title),
