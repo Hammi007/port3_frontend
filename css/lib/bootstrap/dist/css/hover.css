@@ -1,0 +1,8 @@
+
+#title_container{
+    transition: all .2s ease-in-out;
+}
+#title_container:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
