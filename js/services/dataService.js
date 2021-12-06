@@ -25,7 +25,7 @@
 
     let removeTitle = (title) => {
         let param = {
-            method: "POST",
+            method: "DELETE",
             body: JSON.stringify(title),
             headers: {
                 "Content-Type": "application/json"
@@ -53,7 +53,7 @@
             .then(json => callback(json));
     };
 
-    let commenTitle = (comment) => {
+    let commentTitle = (comment) => {
         let param = {
             method: "POST",
             body: JSON.stringify(comment),
@@ -97,7 +97,7 @@
         removeTitle,
         bookmarkTitle,
         searchTitleByGenre,
-        commenTitle,
+        commentTitle,
         getHistory,
         getRatingForTitle,
         rateTitle
