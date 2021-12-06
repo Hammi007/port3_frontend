@@ -1,17 +1,19 @@
-define(['knockout', 'dataService'], function (ko, ds) {
+define(['knockout', 'dataService', 'postman'], function (ko, ds, postman){
     return function (params) {
-        let currentView = params.currentView;
         let titleID = ko.observable();
         let Name = ko.observable();
         let Type = ko.observable();
+        
 
-        let cancelAddTitle = () => currentView("list-title");
+        let cancelAddTitle = () => {
+            postman.publish("changeView", "add-frontpage");
+        }
 
         let addTitle = () => {
-            console.log("addTitle");
-            let title = { titleId: titleID(), OriginalTitle: Name(), TitleType: Type() };
-            console.log(title)
-            ds.AddTitle(title)
+            console.log("addTitleee");
+            postman.publish("newTitle", { titleId: titleID(), OriginalTitle: Name(), TitleType: Type() });
+            console.log("addTitle")
+            postman.publish("changeView", "add-frontpage");
         }
 
         return {
