@@ -5,7 +5,7 @@
     let frontpageView = ko.observable("add-frontpage");
     let frontpagesliderView = ko.observable("add-frontpage-slider");
     let frontpagefooterView = ko.observable("add-frontpage-footer");
-    let addTitleView = () => currentView("add-title")
+    let addTitleView = () => currentView("addTitleView")
 
     return {
         currentView,

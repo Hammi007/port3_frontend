@@ -8,7 +8,7 @@
                 "Content-Type": "application/json"
             }
         }
-        fetch("api/titles", param)
+        fetch("https://localhost:5001/api/titles/add", param)
             .then(response => response.json())
             .then(json => callback(json));
     };
