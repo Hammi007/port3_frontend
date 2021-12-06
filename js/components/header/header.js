@@ -5,7 +5,6 @@
         postman.subscribe("newTitle", title => {
             ds.AddTitle(title, "newTitle");
         });
-
         return {
             addTitle
         }

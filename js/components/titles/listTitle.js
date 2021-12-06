@@ -6,7 +6,7 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
 
         ds.getTitles(data => {
             console.log(data);
-            titles(data["data"]["$values"]);
+            titles([data["data"]["$values"]]);
         });
 
         return {
