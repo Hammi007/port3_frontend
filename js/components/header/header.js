@@ -3,7 +3,7 @@
         let addTitle = () => postman.publish("changeView", "add-title");
 
         postman.subscribe("newTitle", title => {
-            ds.addTitle(title, newTitle);
+            ds.AddTitle(title, "newTitle");
         });
 
         return {
