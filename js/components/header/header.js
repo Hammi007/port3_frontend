@@ -1,10 +1,13 @@
-define(['knockout', 'dataService'], function (ko, ds) {
+﻿define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
     return function (params) {
-        let currentView = params.currentView;
-        let addTitleView = () => currentView("addTitleView")
+        let addTitle = () => postman.publish("changeView", "add-title");
+
+        postman.subscribe("newTitle", title => {
+            ds.AddTitle(title, "newTitle");
+        });
+
         return {
-            currentView,
-            addTitleView
+            addTitle
         }
     };
 });
