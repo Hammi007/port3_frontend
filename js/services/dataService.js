@@ -1,6 +1,6 @@
 ﻿define([], () => {
 
-    let AddTitle = (title, callback) => {
+    let AddTitle = (title) => {
         let param = {
             method: "POST",
             body: JSON.stringify(title),
@@ -10,7 +10,6 @@
         }
         fetch("https://localhost:5001/api/titles/add", param)
             .then(response => response.json())
-            .then(json => callback(json));
     };
 
     let getTitles = (callback) => {
