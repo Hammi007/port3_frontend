@@ -90,6 +90,19 @@
             .then(response => response.json())
     };
 
+
+    let updateTitle = (id, title) => {
+        let param = {
+            method: "PUT",
+            body: JSON.stringify(title),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+        fetch("https://localhost:5001/api/titles/", param, id)
+            .then(response => response.json())
+    };
+
     return {
         AddTitle,
         getTitles,
@@ -100,6 +113,7 @@
         commentTitle,
         getHistory,
         getRatingForTitle,
-        rateTitle
+        rateTitle,
+        updateTitle
     }
 });
