@@ -72,11 +72,20 @@
     };
 
 
-    let getRatingForTitle = (TitleRating, callback) => {
-        fetch("https://localhost:5001/api/titles/rating", TitleRating)
-            .then(response => response.json())
-            .then(json => callback(json));
-    };
+    // let getRatingForTitle = (title) => {
+    //     var returns
+    //     console.log(title)
+    //     fetch("https://localhost:5001/api/titles/rating", {
+    //         method: 'POST',
+    //         body: JSON.stringify({"titleId" : title}),
+    //         headers: {
+    //           'Accept': 'application/json',
+    //           'Content-Type': 'application/json'}
+    //         })
+    //         .then(response => response.json())
+    //         .then(json => returns = json)
+    //     return returns
+    // };
 
     let rateTitle = (urt) => {
         let param = {
