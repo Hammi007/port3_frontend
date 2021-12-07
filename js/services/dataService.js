@@ -121,7 +121,6 @@
         searchTitleByGenre,
         commentTitle,
         getHistory,
-        getRatingForTitle,
         rateTitle,
         updateTitle
     }
