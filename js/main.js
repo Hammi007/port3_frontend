@@ -30,6 +30,11 @@ require(['knockout'], (ko) => {
         template: { require: "text!components/titles/addTitle.html" }
     });
 
+    ko.components.register("title-details", {
+        viewModel: { require: "components/titles/titleDetails" },
+        template: { require: "text!components/titles/titleDetails.html" }
+    });
+
     ko.components.register("add-frontpage", {
         viewModel: { require: "components/frontPage/frontpage" },
         template: { require: "text!components/frontPage/frontpage.html" }
