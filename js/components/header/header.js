@@ -5,8 +5,19 @@
         postman.subscribe("newTitle", title => {
             ds.AddTitle(title, "newTitle");
         });
-        return {
-            addTitle
+        
+        let listGenre = (data) => {
+            postman.publish("listTitlesByGenre", data);
+            postman.publish("changeView", "list-genre");
+            console.log(data);
         }
+        
+        return {
+            addTitle,
+            listGenre
+        }
+
+        
+
     };
 });
