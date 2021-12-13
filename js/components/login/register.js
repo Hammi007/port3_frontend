@@ -2,6 +2,7 @@
     return function (params) {
         let username = ko.observable();
         let password = ko.observable();
+        let signedIn = ko.observable();
 
         let register = () => {
             let user = {
@@ -9,11 +10,10 @@
                 password: password()
             };
 
-            ds.register(user, data => {
-                console.log(data);
+            ds.register(user, data=> {
+                postman.publish("registeredIn", data)
                 postman.publish("changeView", "add-login");
             });
-
         };
 
 

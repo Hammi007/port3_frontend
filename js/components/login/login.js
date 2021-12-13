@@ -2,10 +2,16 @@
     return function (params) {
         let username = ko.observable();
         let password = ko.observable();
-        let signedIn = ko.observable();
-        
 
-
+        postman.subscribe("registeredIn", user => {
+            ds.login(user, data => {
+                console.log(data);
+                localStorage.setItem("username", data.username);
+                localStorage.setItem("token", data.token);
+                postman.publish("changeView", "add-frontpage");
+                postman.publish("loggedIn", data)
+             });
+        });
 
         let login = () => {
             let user = {
@@ -17,7 +23,7 @@
             localStorage.removeItem("token");
 
             ds.login(user, data => {
-                console.log(h);
+                console.log(data);
                 localStorage.setItem("username", data.username);
                 localStorage.setItem("token", data.token);
                 postman.publish("changeView", "add-frontpage");
@@ -29,8 +35,7 @@
         return {
             username,
             password,
-            login,
-            signedIn
+            login
         };
     };
 });

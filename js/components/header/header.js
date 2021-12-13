@@ -10,8 +10,6 @@
             ds.AddTitle(title, "newTitle");
         });
 
-        console.log(localStorage.getItem('username'))
-
         postman.subscribe("loggedIn",data => {
             loggedIn(data)
         })
@@ -29,6 +27,7 @@
          let logOut = () =>{
             localStorage.removeItem("username");
             localStorage.removeItem("token");
+            loggedIn();
          }
 
 

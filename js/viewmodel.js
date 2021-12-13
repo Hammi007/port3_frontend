@@ -1,5 +1,5 @@
 ﻿﻿define(["knockout", "postman"], function (ko, postman) {
-    let currentView = ko.observable("add-frontpage");
+    let currentView = ko.observable("add-register");
     let headerView = ko.observable("add-header");
     let frontpageView = ko.observable("add-frontpage");
     let titleDetailsView = ko.observable("title-details");
