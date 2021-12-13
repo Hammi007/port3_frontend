@@ -2,6 +2,8 @@
     return function (params) {
         let addTitle = () => postman.publish("changeView", "add-title");
         let loginView = () => postman.publish("changeView", "add-login");
+        let userpageView = () => postman.publish("changeView", "add-userpage");
+
         let signedIn = ko.observable();
         let username = ko.observable();
 
@@ -10,7 +12,7 @@
             ds.AddTitle(title, "newTitle");
         });
 
-        postman.subscribe("loggedIn",data => {
+        postman.subscribe("loggedIn", data => {
             loggedIn(data)
         })
 
@@ -39,7 +41,8 @@
             signedIn,
             loggedIn,
             logOut,
-            username
+            username,
+            userpageView
         };
     };
 });

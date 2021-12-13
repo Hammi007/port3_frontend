@@ -55,6 +55,12 @@ require(['knockout'], (ko) => {
         template: { require: "text!components/login/register.html" }
     });
 
+
+    ko.components.register("add-userpage", {
+        viewModel: { require: "components/users/userPage" },
+        template: { require: "text!components/users/userPage.html" }
+    });
+
 });
 
 require(["knockout", "viewmodel"], function (ko, vm) {
