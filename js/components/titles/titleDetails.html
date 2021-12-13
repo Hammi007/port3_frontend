@@ -1,2 +1,8 @@
-<h1>Title details</h1>
 
+<p>test1</p>
+<p data-bind="text: titleObject.primaryTitle"></p>
+<p data-bind="text: tt.primaryTitle"></p>
+
+<div data-bind="using: titleObject">
+    <p data-bind="text: originalTitle"></p>
+</div>

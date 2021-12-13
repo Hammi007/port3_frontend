@@ -12,16 +12,16 @@
     };
 
     let getTitles = (callback) => {
-        fetch("https://localhost:5001/api/titles")
+        fetch("https://localhost:5001/api/titles") //ttasf1294qw1
             .then(response => response.json())
             .then(json => callback(json));
     };
 // Not sure if this is right?
-    let getTitle = (id, callback) => {
+    /*let getTitle = (callback, id) => {
         fetch("https://localhost:5001/api/titles/", id)
             .then(response => response.json())
             .then(json => callback(json));
-    };
+    };*/
 
     let removeTitle = (title) => {
         let param = {
@@ -115,7 +115,7 @@
     return {
         AddTitle,
         getTitles,
-        getTitle,
+        //getTitle,
         removeTitle,
         bookmarkTitle,
         searchTitleByGenre,
