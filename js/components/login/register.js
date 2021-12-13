@@ -21,8 +21,8 @@
 
         return {
             username,
+            register,
             password,
-            cancel
         };
     };
 });
