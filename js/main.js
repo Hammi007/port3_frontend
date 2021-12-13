@@ -40,14 +40,19 @@ require(['knockout'], (ko) => {
         template: { require: "text!components/frontPage/frontpage.html" }
     });
 
-    ko.components.register("add-frontpage-slider", {
-        viewModel: { require: "components/frontPage/slider" },
-        template: { require: "text!components/frontPage/slider.html" }
-    });
-
     ko.components.register("add-frontpage-footer", {
         viewModel: { require: "components/frontPage/footer" },
         template: { require: "text!components/frontPage/footer.html" }
+    });
+
+    ko.components.register("add-login", {
+        viewModel: { require: "components/login/login" },
+        template: { require: "text!components/login/login.html" }
+    });
+
+    ko.components.register("add-register", {
+        viewModel: { require: "components/login/register" },
+        template: { require: "text!components/login/register.html" }
     });
 
 });

@@ -112,6 +112,37 @@
             .then(response => response.json())
     };
 
+    
+
+
+    let register = (user, callback) => {
+        let params = {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        fetch('https://localhost:5001/api/users/register', params)
+            .then(response => response.json())
+            .then(json => callback(json));
+    }
+
+    let login = (user, callback) => {
+        let params = {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        fetch('https://localhost:5001/api/users/login', params)
+            .then(response => response.json())
+            .then(json => callback(json));
+    }
+
+
+
     return {
         AddTitle,
         getTitles,
@@ -122,6 +153,9 @@
         commentTitle,
         getHistory,
         rateTitle,
-        updateTitle
+        updateTitle,
+        register,
+        login
+
     }
 });
