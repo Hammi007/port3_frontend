@@ -1,8 +1,49 @@
+<link rel="stylesheet" href="css/lib/bootstrap/dist/css/title_page.css">
 
-<p>test1</p>
-<p data-bind="text: titleObject.primaryTitle"></p>
-<p data-bind="text: tt.primaryTitle"></p>
 
-<div data-bind="using: titleObject">
-    <p data-bind="text: originalTitle"></p>
+<div class="title_player center">
+    <span class="iconify" id="icon_color" data-icon="el:play-alt" data-width="100"></span>
 </div>
+
+<div class="desc_container center">    
+    <div class="d-flex" data-bind="using: titleObject">
+        <div> <!--poster--->
+            <img width="240px" height="360px" data-bind="attr:{src: omdb.poster}" alt="">
+        </div>
+        
+        <div>
+            <div style="border-bottom: 1px solid rgba(0, 0, 0, 0.123);">
+                <h4>
+                    <span data-bind="text: primaryTitle"></span>
+                </h4>
+                
+                <!------DESCRIPTION-------->
+                <p data-bind="text: genres.$values[0].title.omdb.plot"></p>
+            </div>
+
+            <div id="mini_container">
+
+                <div id="director">
+                    <h4>Director</h4>
+                    <p data-bind="text: director.person.personName"></p>
+                </div>
+        
+                <div id="stars">
+                    <h4>Stars: </h4>
+                    <ul data-bind="foreach: stars">
+                        <li data-bind="text: $values.person.personName"></li>
+                        
+                    </ul>
+                </div>
+
+                <div id="genre">
+                    <h4>Genre:</h4>
+                    <ul data-bind="foreach: genres.$values">
+                        <li data-bind="text: genreName"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
