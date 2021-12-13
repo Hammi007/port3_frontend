@@ -1,0 +1,82 @@
+body{
+    background-color: rgba(155, 155, 155, 0.596);
+}
+
+.title_player{
+    margin-top: 20px;
+    width: 1400px;
+    height: 720px;
+    background-color: rgba(0, 0, 0, 0.637);
+    text-align: center;
+    vertical-align: middle;
+    line-height: 750px;
+    border: 1px solid rgba(0, 0, 0, 0.267);
+}
+
+.center{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.iconify:hover{
+    cursor: pointer;
+}
+
+#icon_color{
+    color: rgba(80, 17, 17, 0.76);
+}
+.desc_container{
+    width: 1400px;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.267);
+}
+
+.desc_container div{
+    padding: 12px 20px;
+}
+
+#mini_container{
+    justify-content: left;
+}
+
+#mini_container div{
+    padding: 0px;    
+}
+
+#director h4{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#director p{
+    font-size: 12px;
+}
+
+#stars{
+ margin-bottom: 12px;
+}
+#stars h4{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#genre h4{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#mini_container ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+}
+
+#mini_container ul li{
+    margin-right: 5px; 
+    font-size: 12px;   
+}
+
