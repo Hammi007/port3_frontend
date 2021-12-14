@@ -8,16 +8,6 @@
     Genre Test: <select data-bind="options: genres, selectedOptions: selectedGenre"></select>
 </div>
 
-<div>  
-    <label>Choose Your Car</label>  
-    <select data-bind="options: availableCars, optionsText: 'carName', value: selectedCar, optionsCaption: 'Choose...'"></select>  
-    <br />  
-    <br />  
-    <div data-bind="visible: selectedCar">  
-        Choosed Car is of Rs  
-        <span data-bind="text: selectedCar() ? selectedCar().price : 'unknown'"></span>.  
-    </div>  
-</div> 
 
 
 <div class="d-flex" data-bind = "foreach: titles">
