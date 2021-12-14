@@ -13,14 +13,13 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
             postman.publish("titleDetails", data);
             
         }   
-
-        ds.getTitlesByGenre(data => {
+        ds.getTitles(data => {
             console.log(data);
                 data["data"]["$values"].forEach(title => {
                 titles.push(title);
             });
         });
-        
+        //TESTING
         /* Trying to pupulate the page with selected genre titles */ 
 
         //Henriks code
@@ -34,15 +33,14 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
             console.log(genreObject()); 
         });
         
-       
-
+    
         return {
             titles,
             titleId,
             titleDetails,
             genreObject,
             genres,
-            selectedGenre 
+            selectedGenre,
         }
     };
 });
