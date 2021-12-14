@@ -65,11 +65,11 @@
             .then(response => response.json())
     };
 
-    let getHistory = (queryString, callback) => {
-        fetch("https://localhost:5001/api/titles/gethistory", queryString)
-            .then(response => response.json())
-            .then(json => callback(json));
-    };
+    // let getHistory = (queryString, callback) => {
+    //     fetch("https://localhost:5001/api/titles/gethistory", queryString)
+    //         .then(response => response.json())
+    //         .then(json => callback(json));
+    // };
 
 
     // let getRatingForTitle = (title) => {
@@ -143,6 +143,46 @@
 
 
 
+    let getHistory = (queryString) => {
+        let params = {
+            method: "GET",
+            headers: {
+                "Authorization": "Barer " + localStorage.getItem("token")
+            },
+            param: new URLSearchParams(queryString).toString()
+        };
+        console.log(params)
+        return fetch("https://localhost:5001/api/titles/gethistory", params)
+            .then(response => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                return response.json();
+            });
+    }
+
+
+    let getUser = (id, callback) => {
+        let params = {
+            method: "GET",
+            headers: {
+                "Authorization": "Barer " + localStorage.getItem("token")
+            }
+        };
+        console.log(localStorage.getItem("token"))
+        fetch("https://localhost:5001/api/users/get/"+ id, params)
+            .then(response => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                return response.json()
+            }).then(json => callback(json));
+    }
+
+
+
+
+
     return {
         AddTitle,
         getTitles,
@@ -155,7 +195,8 @@
         rateTitle,
         updateTitle,
         register,
-        login
+        login,
+        getUser
 
     }
 });

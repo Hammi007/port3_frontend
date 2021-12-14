@@ -1,2 +1,21 @@
+<div class="desc_container center"> 
+   <div class="d-flex" data-bind="with: user">
+      <div>
+            <div><h1>Welcome to your homepage: <span data-bind=" text: username"></span></h1></div>
+            <h2>You joined on: <span data-bind=" text: createdDate"></span></h2>
 
-<h1>userpage</h1>
+            <div id="container">
+               <h4>Movies you have bookmarked:</h4>
+               <ul data-bind="foreach:  bookmarkTitles.$values">
+                   <li data-bind="text: titleId"></li>
+               </ul>
+
+               <div id="container">
+                  <h4>Your searches:</h4>
+                  <ul data-bind="foreach:  searchHistories.$values">
+                      <li data-bind="text: titleId"></li>
+                  </ul>
+           </div>
+      </div>
+   </div>
+</div>

@@ -2,8 +2,6 @@
     return function (params) {
         let addTitle = () => postman.publish("changeView", "add-title");
         let loginView = () => postman.publish("changeView", "add-login");
-        let userpageView = () => postman.publish("changeView", "add-userpage");
-
         let signedIn = ko.observable();
         let username = ko.observable();
 
@@ -23,7 +21,6 @@
           } else {
              signedIn(false);
               }
-             console.log(signedIn)
          }
 
          let logOut = () =>{
@@ -32,6 +29,11 @@
             loggedIn();
          }
 
+         let pageDetails = (data) => {
+            postman.publish("pageDetails", data);
+            console.log(data)
+            postman.publish("changeView", "add-userpage");
+        }
 
          window.onload = loggedIn();
 
@@ -42,7 +44,7 @@
             loggedIn,
             logOut,
             username,
-            userpageView
+            pageDetails
         };
     };
 });
