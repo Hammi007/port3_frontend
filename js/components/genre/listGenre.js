@@ -5,14 +5,14 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
         let titleId = ko.observable();
         
         let genres = ko.observableArray();
-        let selectedGenre = ko.observableArray([10]);
+        let selectedGenre = ko.observableArray([]);
 
         
         /* Populating the page with all all titles */
         let titleDetails = (data) => {
             postman.publish("titleDetails", data);
             
-        }
+        }   
 
         ds.getTitlesByGenre(data => {
             console.log(data);
@@ -21,28 +21,28 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
             });
         });
         
-        /*Trying to pupulate the page with selected genre titles*/ 
+        /* Trying to pupulate the page with selected genre titles */ 
 
         //Henriks code
-        selectedPageSize.subscribe(() => {
+        selectedGenre.subscribe(() => {
             var genre = selectedGenre()[0];
             getData(ds.searchTitleByGenre(genre));
         });
         
         postman.subscribe("listTitlesByGenre", data => {
-            
             console.log(data)
             console.log(genreObject()); 
         });
         
-
        
-        
+
         return {
             titles,
             titleId,
             titleDetails,
-            genreObject 
+            genreObject,
+            genres,
+            selectedGenre 
         }
     };
 });
