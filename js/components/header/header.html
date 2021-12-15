@@ -29,6 +29,10 @@
                 <a><button data-bind="visible: !signedIn(), click: loginView" class="btn btn-primary">Login</button></a>
                 <a><button data-bind="visible: signedIn(), click: logOut" class="btn btn-primary">Log out</button></a>
             </li>
+
+            <li class="nav-item">
+                <a><button data-bind="visible: !signedIn(), click: registerView" class="btn btn-primary">registerView</button></a>
+            </li>
             
             <li class = "nav-item" data-bind="visible: signedIn()"> <p> Welcome <span data-bind=" text: username"></span></p>
             </li>

@@ -180,6 +180,24 @@
     }
 
 
+    let getCommentsById = (id, callback) => {
+        let params = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        fetch("https://localhost:5001/api/titles/comments/"+ id, params)
+            .then(response => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                return response.json()
+            }).then(json => callback(json));
+    }
+
+
+
 
 
 
@@ -196,7 +214,9 @@
         updateTitle,
         register,
         login,
-        getUser
+        getUser,
+        getCommentsById
+
 
     }
 });

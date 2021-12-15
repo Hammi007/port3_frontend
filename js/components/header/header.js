@@ -2,6 +2,7 @@
     return function (params) {
         let addTitle = () => postman.publish("changeView", "add-title");
         let loginView = () => postman.publish("changeView", "add-login");
+        let registerView = () => postman.publish("changeView", "add-register");
         let signedIn = ko.observable();
         let username = ko.observable();
 
@@ -44,7 +45,8 @@
             loggedIn,
             logOut,
             username,
-            pageDetails
+            pageDetails,
+            registerView
         };
     };
 });

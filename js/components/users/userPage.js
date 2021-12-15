@@ -2,44 +2,46 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
     return function (params) {
         let user = ko.observable();
         let username = ko.observable(localStorage.getItem("username"));
-        let id = ko.observable();
-
-        let searchHistory = () => {
-            let queryString = {
-                user : localStorage.getItem("username")
-            };
-            console.log(queryString)
-            ds.getHistory(queryString, data=> {
-                console.log(data)
-            });
-        };
-        // let getUser = () => {
-        //     id(localStorage.getItem("username"))
-        //     ds.getUser(id, data=> {
-        //         console.log(data)
-        //     }).then(data => user(data))
-        //  };
+        // let bookmarkedTitles = ko.observablearray([]);
 
         function setData(data){
             user(data)
             console.log(data)
         }
 
-
          let getUser = () => {
              ds.getUser(localStorage.getItem("username"), setData)
          };
 
         postman.subscribe("pageDetails", data => {
-            getUser()
+            getUser(data)
         });
+
+        // QueryString example
+        // let searchHistory = () => {
+        //     let queryString = {
+        //         user : localStorage.getItem("username")
+        //     };
+        //     console.log(queryString)
+        //     ds.getHistory(queryString, data=> {
+        //         console.log(data)
+        //     });
+        // };
+
+        //Virker også
+        // let getUser = () => {
+        //     id(localStorage.getItem("username"))
+        //     ds.getUser(id, data=> {
+        //         console.log(data)
+        //     }).then(data => user(data))
+        //  };
         
         return {
-            searchHistory,
+            // searchHistory,
             username,
             getUser,
             user,
-            id,
+            // bookmarkedTitles
         }
 
     };
