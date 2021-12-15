@@ -6,10 +6,11 @@
         postman.subscribe("newTitle", title => {
             ds.AddTitle(title, "newTitle");
         });
-        
-        let listGenre = (data) => {
-            postman.publish("listTitlesByGenre", data);
+
+        let listGenre = (data, event) => {
+            postman.publish("listTitlesByGenre", event.target.id);
             postman.publish("changeView", "list-genre");
+            console.log(event.target.id)
             console.log(data);
         }
         

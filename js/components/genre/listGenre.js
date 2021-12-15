@@ -7,30 +7,29 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
         let genres = ko.observableArray();
         let selectedGenre = ko.observableArray([]);
 
-        
+        var selected_genre = ko.observable();
         /* Populating the page with all all titles */
         let titleDetails = (data) => {
             postman.publish("titleDetails", data);
             
         }   
-        ds.getTitles(data => {
-            console.log(data);
-                data["data"]["$values"].forEach(title => {
+        function setData(data){
+            data["data"]["$values"].forEach(title => {
                 titles.push(title);
+                console.log(title)
             });
-        });
+        }
+        
         //TESTING
         /* Trying to pupulate the page with selected genre titles */ 
 
-        //Henriks code
-        selectedGenre.subscribe(() => {
-            var genre = selectedGenre()[0];
-            getData(ds.searchTitleByGenre(genre));
-        });
-        
         postman.subscribe("listTitlesByGenre", data => {
+            if(typeof(data) == "string"){
+                console.log("Set selected genre to: " + data)
+                selected_genre(data)
+                ds.searchTitleByGenre(selected_genre(), setData)
+            }
             console.log(data)
-            console.log(genreObject()); 
         });
         
     
@@ -41,6 +40,7 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
             genreObject,
             genres,
             selectedGenre,
+            selected_genre,
         }
     };
 });

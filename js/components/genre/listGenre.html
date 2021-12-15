@@ -1,14 +1,5 @@
 
-<p>Genre</p>
-<h1>hello</h1>
-
-
-<!-- Testing stuff-->
-<div>
-    Genre Test: <select data-bind="options: genres, selectedOptions: selectedGenre"></select>
-</div>
-
-
+<p>Genre <b data-bind = "text: selected_genre"></b></p>
 
 <div class="d-flex" data-bind = "foreach: titles">
     <div id="title_container" class="container" data-bind="click: $component.titleDetails, title : titleId"

@@ -15,6 +15,11 @@
         fetch("https://localhost:5001/api/titles") //ttasf1294qw1
             .then(response => response.json())
             .then(json => callback(json));
+    };    
+    let getTitlesBygenre = (callback) => {
+        fetch("https://localhost:5001/api/titles") //ttasf1294qw1
+            .then(response => response.json())
+            .then(json => callback(json));
     };
 // Not sure if this is right?
     /*let getTitle = (callback, id) => {
@@ -48,7 +53,7 @@
     };
 
     let searchTitleByGenre = (queryString, callback) => {
-        fetch("https://localhost:5001/api/titles/search", queryString)
+        fetch("https://localhost:5001/api/titles?genre="+ queryString)
             .then(response => response.json())
             .then(json => callback(json));
     };
