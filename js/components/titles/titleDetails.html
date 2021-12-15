@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="css/lib/bootstrap/dist/css/title_page.css">
 
-
+<h1>Hej</h1>
 <div class="title_player center">
     <span class="iconify" id="icon_color" data-icon="el:play-alt" data-width="100"></span>
 </div>
 
 <div class="desc_container center">    
-    <div class="d-flex" data-bind="using: titleObject">
-        <div> <!--poster--->
+    <div class="d-flex" data-bind="with: titleObject">
+        <div> 
             <img width="240px" height="360px" data-bind="attr:{src: omdb.poster}" alt="">
         </div>
         
@@ -17,8 +17,8 @@
                     <span data-bind="text: primaryTitle"></span>
                 </h4>
                 
-                <!------DESCRIPTION-------->
-                <p data-bind="text: genres.$values[0].title.omdb.plot"></p>
+            
+                <p data-bind="text: omdb.plot"></p>
             </div>
 
             <div id="mini_container">
