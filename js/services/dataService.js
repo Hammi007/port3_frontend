@@ -16,9 +16,15 @@
             .then(response => response.json())
             .then(json => callback(json));
     };
-// Not sure if this is right?
+
     let getTitle = (id, callback) => {
         fetch("https://localhost:5001/api/titles/" + id)
+            .then(response => response.json())
+            .then(json => callback(json));
+    };
+
+    let getStars = (id, callback) => {
+        fetch("https://localhost:5001/api/titles/stars?titleId=" + id)
             .then(response => response.json())
             .then(json => callback(json));
     };
@@ -116,6 +122,7 @@
         AddTitle,
         getTitles,
         getTitle,
+        getStars,
         removeTitle,
         bookmarkTitle,
         searchTitleByGenre,

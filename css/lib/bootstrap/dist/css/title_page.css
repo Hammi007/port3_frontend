@@ -23,17 +23,19 @@ body{
 }
 
 #icon_color{
-    color: rgba(80, 17, 17, 0.76);
+    color: rgb(97, 56, 19);
 }
 .desc_container{
     width: 1400px;
     height: auto;
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgba(0, 0, 0, 0.267);
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .desc_container div{
     padding: 12px 20px;
+    background-color: rgb(58, 58, 57);
+    color: white;
 }
 
 #mini_container{
