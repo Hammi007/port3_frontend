@@ -3,9 +3,7 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
         let genreObject = ko.observable();
         let titles = ko.observableArray([]);
         let titleId = ko.observable();
-        
         let genres = ko.observableArray();
-        let selectedGenre = ko.observableArray([]);
 
         var selected_genre = ko.observable();
         /* Populating the page with all all titles */
@@ -14,9 +12,9 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
             
         }   
         function setData(data){
+            titles([])
             data["data"]["$values"].forEach(title => {
                 titles.push(title);
-                console.log(title)
             });
         }
         
@@ -39,7 +37,6 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
             titleDetails,
             genreObject,
             genres,
-            selectedGenre,
             selected_genre,
         }
     };
