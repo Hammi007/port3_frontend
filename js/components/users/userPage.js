@@ -14,10 +14,14 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
             user(data)
             //Checks if bookmarktitles has titles by reference to other parts of the user object, or it has the full title object itself
             data.bookmarkTitles.$values.forEach(element => {
+                if(element.$ref === undefined){
+                    element = getObject(data, element.$ref)
+                }
                 if(element.title.$ref === undefined){
-                    commentedTitles.push(element.title)
+                    commentedTitles.push(element)
                 } else {
-                    bookmarkedTitles.push(getObject(data, element.title.$ref))
+                    element.title=getObject(data, element.title.$ref)
+                    bookmarkedTitles.push(element)
                 }
             });
             data.comments.$values.forEach(element => {
@@ -29,10 +33,13 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
                 }
             });
             data.userTitleRating.$values.forEach(element => {
-                if(element.title.$ref === undefined){
+                if(element.$ref === undefined){
                     ratedTitles.push(element)
                 } else {
-                    element.title = getObject(data, element.title.$ref)
+                    element = getObject(data, element.$ref)
+                    if(element.title.$ref === undefined){
+                        element.title = getObject(data, element.title.$ref)
+                    }
                     ratedTitles.push(element)
                 }
             });
