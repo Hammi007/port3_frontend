@@ -3,6 +3,10 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
         let user = ko.observable();
         let username = ko.observable(localStorage.getItem("username"));
         // let bookmarkedTitles = ko.observablearray([]);
+        let titleDetails = (data) => {
+            postman.publish("titleDetails", data);
+            postman.publish("changeView", "title-details");
+        }
 
         function setData(data){
             user(data)
@@ -41,6 +45,7 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
             username,
             getUser,
             user,
+            titleDetails
             // bookmarkedTitles
         }
 

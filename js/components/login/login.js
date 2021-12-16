@@ -4,13 +4,12 @@
         let password = ko.observable();
 
         postman.subscribe("registeredIn", user => {
-            ds.login(user, data => {
-                console.log(data);
+             ds.login(user, data => {
                 localStorage.setItem("username", data.username);
                 localStorage.setItem("token", data.token);
-                postman.publish("changeView", "add-frontpage");
-                postman.publish("loggedIn", data)
-             });
+                 postman.publish("changeView", "add-frontpage");
+                 postman.publish("loggedIn", data)
+              });
         });
 
         let login = () => {

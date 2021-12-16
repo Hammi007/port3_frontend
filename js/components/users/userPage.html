@@ -7,14 +7,20 @@
             <div id="container">
                <h4>Movies you have bookmarked:</h4>
                <ul data-bind="foreach:  bookmarkTitles.$values">
-                   <li data-bind="text: titleId"></li>
+                   <li data-bind="click: $component.titleDetails, text: title.originalTitle"></li>
                </ul>
 
-               <div id="container">
-                  <h4>Your searches:</h4>
-                  <ul data-bind="foreach:  searchHistories.$values">
-                      <li data-bind="text: searchString"></li>
-                  </ul>
+            <div id="container">
+               <h4>Your searches:</h4>
+               <ul data-bind="foreach:  searchHistories.$values">
+                     <li data-bind="text: searchString"></li>
+               </ul>
+
+            <div id="container">
+               <h4>Your comments:</h4>
+               <ul data-bind="foreach:  comments.$values">
+                     <li data-bind="text: comment1"></li> 
+               </ul>
            </div>
       </div>
    </div>

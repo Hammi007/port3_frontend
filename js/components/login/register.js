@@ -10,8 +10,9 @@
                 password: password()
             };
 
-            ds.register(user, data=> {
-                postman.publish("registeredIn", data)
+            ds.register(user, data => {
+                console.log(data)
+                postman.publish("registeredIn", user)
                 postman.publish("changeView", "add-login");
             });
         };
@@ -23,6 +24,7 @@
             username,
             register,
             password,
+            signedIn
         };
     };
 });
