@@ -2,8 +2,8 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
     return function (params) {
         let titleObject = ko.observable();
 
-        let stars = ko.observable();
-        //let stars = ko.observableArray();
+        let stars = ko.observableArray([]);
+       
 
 
         postman.subscribe("titleDetails", data => {
@@ -14,25 +14,22 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
 
         function setData(data) 
         {
+        
             titleObject(data);
             
         }
 
         function setData2(data) 
         {
-            /*console.log("before");
+            console.log("before");
             console.log(data);
 
-            data["$values"].forEach(item => {
-                stars.push(item);
-                console.log("rtest");
-                console.log(item);
-                
+            data["result"]["$values"].forEach(item => {
+                stars.push(item);    
             });
 
-            console.log(stars());
-            console.log(stars);*/
-            stars(data);
+            //stars(data);
+            console.log("ressult");
             console.log(stars());
         }
 

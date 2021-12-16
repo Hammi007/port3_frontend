@@ -38,15 +38,18 @@
                 <div id="stars">
                     <h4>Stars: </h4>
                     <p data-bind="text: stars"></p>
-                    <ul data-bind="foreach: stars.$values">   
-                        <p data-bind="text: category"></p>
+                    <ul data-bind="foreach: stars">
                         <li data-bind="text: person.personName"></li>
+
+                        <!----
+                        <li data-bind="text: person.personName"></li>-->
                         
                     </ul>
                 </div>
 
                 <div id="genre">
                     <h4>Genre:</h4>
+                    <p data-bind="text: genres"></p>
                     <ul data-bind="foreach: genres.$values">
                         <li data-bind="text: genreName"></li>
                     </ul>
