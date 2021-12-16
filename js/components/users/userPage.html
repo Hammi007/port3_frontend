@@ -19,7 +19,7 @@
             <div id="container">
                <h4>Your comments:</h4>
                <ul data-bind="foreach:  comments.$values">
-                     <li data-bind="text: comment1"></li> 
+                     <li data-bind="click: $component.titleDetails, text: titleId"></li> Comment: <span data-bind="text: comment1"> <br> </span> Written on: <span data-bind="text: date"></span>
                </ul>
            </div>
       </div>
