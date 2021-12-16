@@ -9,7 +9,8 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
         /* Populating the page with all all titles */
         let titleDetails = (data) => {
             postman.publish("titleDetails", data);
-            
+            postman.publish("changeView", "title-details");
+
         }   
         function setData(data){
             titles([])
