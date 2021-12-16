@@ -12,7 +12,6 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
     let search_needle = ko.observable();
 
     postman.subscribe("search-title", data => {
-        searched_titles({}); 
         search_needle(data);
         ds.search(search_needle(), setData);
     });
@@ -20,7 +19,8 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
 
     function setData(data) 
     {
-        
+        console.log("test");
+        console.log(data);
         searched_titles(data);
         console.log(searched_titles());
         

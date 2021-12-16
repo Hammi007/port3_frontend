@@ -2,27 +2,142 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+<link rel="stylesheet" href="../../../css/lib/bootstrap/dist/css/searched_titles.css">
+<style>
+    
+    #imd{
+        background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAmOXK39y1kgHp4rnTsjrmR-CXYJBjytBUWlG4nK476p-Kqp4GW1IoUe82CLfvvvdKvc&usqp=CAU');  
+        background-repeat: no-repeat;
+        background-size: cover; 
+    }
 
+    body{
+    background-color: rgba(155, 155, 155, 0.596);
+}
 
+.center{
+    margin-right: auto;
+    margin-left: auto;
+}
 
+.desc_container{
+    width: 1000px;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+}
 
+.desc_container div{
+    padding: 12px 20px;
+    background-color: rgb(58, 58, 57);
+    color: white;
+}
+
+#votes_container div{
+    padding: 20px 20px;
+    background-color: rgb(58, 58, 57);
+    color: white;
+}
+
+#mini_container{
+    justify-content: left;
+}
+
+#mini_container div{
+    padding: 0px;    
+}
+
+#info h4{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#director p{
+    font-size: 12px;
+}
+
+#stars{
+ margin-bottom: 12px;
+}
+
+#mini_container ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+}
+
+#mini_container ul li{
+    margin-right: 5px; 
+    font-size: 12px;   
+    
+}   
+
+#match{
+    height: 360px; /*matches poster height*/
+    overflow-y: hidden;
+    margin-bottom: 20px;
+}
+</style>
 
 <div data-bind="with: searched_titles">
+    
     <div data-bind="foreach: data.$values">
-        <div class="d-flex">
-            <img id="imd" width="240px" height="360px" data-bind="attr:{src: genres.$values[0].title.omdb.poster}" alt="">
-            <div>
-                <p data-bind="text: originalTitle"></p>   
-                <p data-bind="text: genres.$values[0].title.omdb.plot"></p> 
-                <ul data-bind="foreach: genres.$values[0].title.principal.$values"> 
-                    <li data-bind="text: person.personName"></li>
-                </ul>
-                <p data-bind="text: genres.$values[0].genreName"></p>
-            </div>
-                
-        </div>
-                
         
+        <div class="d-flex desc_container center" id="match">
+        <p data-bind="text: titleId"></p>
+        <img id="imd" width="240px" height="360px" data-bind="attr:{src: genres.$values[0].title.omdb.poster}" alt="">
+            
+            <div>
+                <h4>
+                    <span data-bind="text: originalTitle"></span>
+                </h4>   
+
+                <p data-bind="text: genres.$values[0].title.omdb.plot"></p>
+                
+                <div class="d-flex" id="info">
+
+                    <div id="mini_container">
+                        
+                        <div id="director">
+                            <h4>Director</h4>
+                            <p data-bind="text: genres.$values[0].title.director.person.personName"></p>
+                        </div>
+    
+                        <div id="stars">
+                            <h4>Stars: </h4>
+                            <ul data-bind="foreach: genres.$values[0].title.principal.$values">
+                                <li data-bind="text: person.personName" style="margin-right: 10px;"></li>
+                            </ul>
+                        </div>
+    
+                        <div id="genre">
+                            <h4>Genre:</h4>
+                            <ul data-bind="foreach: genres.$values">
+                                <li data-bind="text: genreName"></li>
+                            </ul>
+                        </div>
+
+                    </div>
+    
+                    <div id="votes_container">
+
+                        <div>
+                            <h4>Votes</h4>
+                            <p data-bind="text: genres.$values[0].title.titleRating.votes"></p>
+                        </div>
+
+                        <div>
+                            <h4>Rating</h4>
+                            <p data-bind="text: genres.$values[0].title.titleRating.ratingAvg"></p>
+                        </div>
+
+                    </div>
+                </div>      
+            </div>
+        </div>     
     </div>
 </div>
  
@@ -30,12 +145,3 @@
 
 
 
-<style>
-    
-#imd{
-        background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAmOXK39y1kgHp4rnTsjrmR-CXYJBjytBUWlG4nK476p-Kqp4GW1IoUe82CLfvvvdKvc&usqp=CAU');  
-        background-repeat: no-repeat;
-        background-size: cover; 
-    }
-
-</style>
