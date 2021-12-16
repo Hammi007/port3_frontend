@@ -61,6 +61,11 @@ require(['knockout'], (ko) => {
         template: { require: "text!components/users/userPage.html" }
     });
 
+    ko.components.register("list-genre", {
+        viewModel: { require: "components/genre/listGenre" },
+        template: { require: "text!components/genre/listGenre.html" }
+    });
+
 });
 
 function getObject(theObject, needle) {

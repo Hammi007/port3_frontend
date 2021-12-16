@@ -11,15 +11,15 @@
                     Genre
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Adventure</a>
-                    <a class="dropdown-item" href="#">Comedy</a>
-                    <a class="dropdown-item" href="#">Documentary</a>
-                    <a class="dropdown-item" href="#">Drama</a>
-                    <a class="dropdown-item" href="#">Horror</a>
-                    <a class="dropdown-item" href="#">Romance</a>
-                    <a class="dropdown-item" href="#">War</a>
-                    <a class="dropdown-item" href="#">Western</a>
+                    <a id='Action' class="dropdown-item genre_class" href data-bind="click: $component.listGenre">Action</href>
+                    <a id='Adventure' class="dropdown-item" href data-bind="click: $component.listGenre">Adventure</a>
+                    <a id='Comedy' class="dropdown-item" href data-bind="click: $component.listGenre">Comedy</a>
+                    <a id='Documentary' class="dropdown-item" href data-bind="click: $component.listGenre">Documentary</a>
+                    <a id='Drama' class="dropdown-item" href data-bind="click: $component.listGenre">Drama</a>
+                    <a id='Horror' class="dropdown-item" href data-bind="click: $component.listGenre">Horror</a>
+                    <a id='Romance'class="dropdown-item" href data-bind="click: $component.listGenre">Romance</a>
+                    <a id='War'class="dropdown-item" href data-bind="click: $component.listGenre">War</a>
+                    <a id='Western' class="dropdown-item" href data-bind="click: $component.listGenre">Western</a>
 
                 </div>
             
@@ -39,7 +39,7 @@
             <li class = "nav-item">
                 <a><button data-bind="visible: signedIn(), click: pageDetails" class="btn btn-primary">Userpage</button></a>
             </li>
-
+-
         </ul>
     </div>
 
@@ -51,4 +51,3 @@
         <button class="btn btn-outline-light" type="submit">Search</button>
     </form>
 </nav>
-

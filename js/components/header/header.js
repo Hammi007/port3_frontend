@@ -6,6 +6,7 @@
         let signedIn = ko.observable();
         let username = ko.observable();
 
+        let genre = ko.observable();
 
         postman.subscribe("newTitle", title => {
             ds.AddTitle(title, "newTitle");
@@ -36,6 +37,14 @@
             postman.publish("changeView", "add-userpage");
         }
 
+
+        let listGenre = (data, event) => {
+            postman.publish("listTitlesByGenre", event.target.id);
+            postman.publish("changeView", "list-genre");
+            console.log(event.target.id)
+            console.log(data);
+        }
+
          window.onload = loggedIn();
 
         return {
@@ -46,7 +55,9 @@
             logOut,
             username,
             pageDetails,
-            registerView
+            registerView,
+            listGenre,
+            genre
         };
     };
 });
