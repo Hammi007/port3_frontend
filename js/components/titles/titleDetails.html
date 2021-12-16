@@ -1,8 +1,58 @@
+<link rel="stylesheet" href="css/lib/bootstrap/dist/css/title_page.css">
 
-<p>test1</p>
-<p data-bind="text: titleObject.primaryTitle"></p>
-<p data-bind="text: tt.primaryTitle"></p>
+<style>
+    #imd{
+        background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAmOXK39y1kgHp4rnTsjrmR-CXYJBjytBUWlG4nK476p-Kqp4GW1IoUe82CLfvvvdKvc&usqp=CAU');  
+        background-repeat: no-repeat;
+        background-size: cover; 
+    }
+</style>
 
-<div data-bind="using: titleObject">
-    <p data-bind="text: originalTitle"></p>
+<div class="title_player center">
+    <span class="iconify" id="icon_color" data-icon="el:play-alt" data-width="100"></span>
 </div>
+
+<div class="desc_container center">    
+    <div class="d-flex" data-bind="with: titleObject">
+        <div> <!--poster--->
+            <img id="imd" width="240px" height="360px" data-bind="attr:{src: omdb.poster}" alt="">
+        </div>
+        
+        <div>
+            <div style="border-bottom: 1px solid rgba(204, 204, 204, 0.123); margin-bottom: 10px;">
+                <h4>
+                    <span data-bind="text: primaryTitle"></span>
+                </h4>
+                
+                <!------DESCRIPTION-------->
+                <p data-bind="text: omdb.plot"></p>
+            </div>
+
+            <div id="mini_container">
+
+                <div id="director">
+                    <h4>Director</h4>
+                    <p data-bind="text: director.person.personName"></p>
+                </div>
+        
+                <div id="stars">
+                    <h4>Stars: </h4>
+                    <p data-bind="text: stars"></p>
+                    <ul data-bind="foreach: stars.$values">   
+                        <p data-bind="text: category"></p>
+                        <li data-bind="text: person.personName"></li>
+                        
+                    </ul>
+                </div>
+
+                <div id="genre">
+                    <h4>Genre:</h4>
+                    <ul data-bind="foreach: genres.$values">
+                        <li data-bind="text: genreName"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
