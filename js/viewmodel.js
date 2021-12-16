@@ -6,6 +6,7 @@
     let titleDetailsView = ko.observable("title-details");
     let frontpagesliderView = ko.observable("add-frontpage-slider");
     let frontpagefooterView = ko.observable("add-frontpage-footer");
+    let searchtitleview = ko.observable("search-title-view");
     let addTitleView = () => currentView("addTitleView")
 
     postman.subscribe("changeView", function (data) {
@@ -20,6 +21,7 @@
         frontpagesliderView,
         frontpagefooterView,
         titleDetailsView,
-        addTitleView
+        addTitleView,
+        searchtitleview
     }
 });

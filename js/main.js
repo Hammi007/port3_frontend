@@ -50,6 +50,11 @@ require(['knockout'], (ko) => {
         template: { require: "text!components/frontPage/footer.html" }
     });
 
+    ko.components.register("search-title-view", {
+        viewModel: { require: "components/searched_titles/searched_titles" },
+        template: { require: "text!components/searched_titles/searched_titles.html" }
+    });
+
 });
 
 require(["knockout", "viewmodel"], function (ko, vm) {

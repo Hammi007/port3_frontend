@@ -29,6 +29,12 @@
             .then(json => callback(json));
     };
 
+    let search = (queryString, callback) => {
+        fetch("https://localhost:5001/api/titles/search?needle=" + queryString)
+            .then(response => response.json())
+            .then(json => callback(json));
+    };
+
     let removeTitle = (title) => {
         let param = {
             method: "DELETE",
@@ -129,6 +135,7 @@
         commentTitle,
         getHistory,
         rateTitle,
-        updateTitle
+        updateTitle,
+        search
     }
 });
