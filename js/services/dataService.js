@@ -15,6 +15,11 @@
         fetch("https://localhost:5001/api/titles") //ttasf1294qw1
             .then(response => response.json())
             .then(json => callback(json));
+    };    
+    let getTitlesBygenre = (callback) => {
+        fetch("https://localhost:5001/api/titles") //ttasf1294qw1
+            .then(response => response.json())
+            .then(json => callback(json));
     };
 
     let getTitle = (id, callback) => {
@@ -25,6 +30,12 @@
 
     let getStars = (id, callback) => {
         fetch("https://localhost:5001/api/titles/stars?titleId=" + id)
+            .then(response => response.json())
+            .then(json => callback(json));
+    };
+
+    let search = (queryString, callback) => {
+        fetch("https://localhost:5001/api/titles/search?needle=" + queryString)
             .then(response => response.json())
             .then(json => callback(json));
     };
@@ -54,7 +65,7 @@
     };
 
     let searchTitleByGenre = (queryString, callback) => {
-        fetch("https://localhost:5001/api/titles/search", queryString)
+        fetch("https://localhost:5001/api/titles?genre="+ queryString)
             .then(response => response.json())
             .then(json => callback(json));
     };
@@ -71,11 +82,11 @@
             .then(response => response.json())
     };
 
-    let getHistory = (queryString, callback) => {
-        fetch("https://localhost:5001/api/titles/gethistory", queryString)
-            .then(response => response.json())
-            .then(json => callback(json));
-    };
+    // let getHistory = (queryString, callback) => {
+    //     fetch("https://localhost:5001/api/titles/gethistory", queryString)
+    //         .then(response => response.json())
+    //         .then(json => callback(json));
+    // };
 
 
     // let getRatingForTitle = (title) => {
@@ -118,6 +129,95 @@
             .then(response => response.json())
     };
 
+    
+
+
+    let register = (user, callback) => {
+        let params = {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        fetch('https://localhost:5001/api/users/register', params)
+            .then(response => response.json())
+            .then(json => callback(json));
+    }
+
+    let login = (user, callback) => {
+        let params = {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        fetch('https://localhost:5001/api/users/login', params)
+            .then(response => response.json())
+            .then(json => callback(json));
+    }
+
+
+
+    let getHistory = (queryString) => {
+        let params = {
+            method: "GET",
+            headers: {
+                "Authorization": "Barer " + localStorage.getItem("token")
+            },
+            param: new URLSearchParams(queryString).toString()
+        };
+        console.log(params)
+        return fetch("https://localhost:5001/api/titles/gethistory", params)
+            .then(response => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                return response.json();
+            });
+    }
+
+
+    let getUser = (id, callback) => {
+        let params = {
+            method: "GET",
+            headers: {
+                "Authorization": "Barer " + localStorage.getItem("token")
+            }
+        };
+        console.log(localStorage.getItem("token"))
+        fetch("https://localhost:5001/api/users/get/"+ id, params)
+            .then(response => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                return response.json()
+            }).then(json => callback(json));
+    }
+
+
+    let getCommentsById = (id, callback) => {
+        let params = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+        fetch("https://localhost:5001/api/titles/comments/"+ id, params)
+            .then(response => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                return response.json()
+            }).then(json => callback(json));
+    }
+
+
+
+
+
+
     return {
         AddTitle,
         getTitles,
@@ -129,6 +229,11 @@
         commentTitle,
         getHistory,
         rateTitle,
-        updateTitle
+        updateTitle,
+        register,
+        login,
+        getUser,
+        getCommentsById,
+        search
     }
 });

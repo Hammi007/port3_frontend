@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<div data-bind="with: searched_titles">
+    <div data-bind="foreach: data.$values">
+        <div class="d-flex">
+            <img id="imd" width="240px" height="360px" data-bind="attr:{src: genres.$values[0].title.omdb.poster}" alt="">
+            <div>
+                <p data-bind="text: originalTitle"></p>   
+                <p data-bind="text: genres.$values[0].title.omdb.plot"></p> 
+                <ul data-bind="foreach: genres.$values[0].title.principal.$values"> 
+                    <li data-bind="text: person.personName"></li>
+                </ul>
+                <p data-bind="text: genres.$values[0].genreName"></p>
+            </div>
+                
+        </div>
+                
+        
+    </div>
+</div>
+ 
+
+
+
+
+<style>
+    
+#imd{
+        background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAmOXK39y1kgHp4rnTsjrmR-CXYJBjytBUWlG4nK476p-Kqp4GW1IoUe82CLfvvvdKvc&usqp=CAU');  
+        background-repeat: no-repeat;
+        background-size: cover; 
+    }
+
+</style>

@@ -1,0 +1,27 @@
+<div class="desc_container center"> 
+   <div class="d-flex" data-bind="with: user">
+      <div>
+            <div><h1>Welcome to your homepage: <span data-bind=" text: username"></span></h1></div>
+            <h2>You joined on: <span data-bind=" text: createdDate"></span></h2>
+
+            <div id="container">
+               <h4>Movies you have bookmarked:</h4>
+               <ul data-bind="foreach:  $component.bookmarkedTitles">
+                   <li data-bind="click: $component.titleDetails, text: originalTitle"></li>
+               </ul>
+
+            <div id="container">
+               <h4>Your searches:</h4>
+               <ul data-bind="foreach:  searchHistories.$values">
+                     <li data-bind="text: searchString"></li>
+               </ul>
+
+            <div id="container">
+               <h4>Your comments:</h4>
+               <ul data-bind="foreach:  $component.commentedTitles">
+                     <li data-bind="click: $component.titleDetails, text: title.originalTitle"></li> Comment: <span data-bind="text: comment1"> <br> </span> Written on: <span data-bind="text: date"></span>
+               </ul>
+           </div>
+      </div>
+   </div>
+</div>
