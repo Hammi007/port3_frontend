@@ -2,6 +2,9 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
     return function (params) {
         let user = ko.observable();
         let username = ko.observable(localStorage.getItem("username"));
+        let bookmarkedTitles = ko.observableArray([]);
+        let commentedTitles = ko.observableArray([]);
+        let ratedTitles = ko.observableArray([]);
         let titleDetails = (data) => {
             postman.publish("titleDetails", data);
             postman.publish("changeView", "title-details");
@@ -9,7 +12,30 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
 
         function setData(data){
             user(data)
-            console.log(data)
+            //Checks if bookmarktitles has titles by reference to other parts of the user object, or it has the full title object itself
+            data.bookmarkTitles.$values.forEach(element => {
+                if(element.title.$ref === undefined){
+                    commentedTitles.push(element.title)
+                } else {
+                    bookmarkedTitles.push(getObject(data, element.title.$ref))
+                }
+            });
+            data.comments.$values.forEach(element => {
+                if(element.title.$ref === undefined){
+                    commentedTitles.push(element)
+                } else {
+                    element.title = getObject(data, element.title.$ref)
+                    commentedTitles.push(element)
+                }
+            });
+            data.userTitleRating.$values.forEach(element => {
+                if(element.title.$ref === undefined){
+                    ratedTitles.push(element)
+                } else {
+                    element.title = getObject(data, element.title.$ref)
+                    ratedTitles.push(element)
+                }
+            });
         }
 
          let getUser = () => {
@@ -43,7 +69,10 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
             username,
             getUser,
             user,
-            titleDetails
+            titleDetails,
+            bookmarkedTitles,
+            commentedTitles,
+            ratedTitles
         }
 
     };

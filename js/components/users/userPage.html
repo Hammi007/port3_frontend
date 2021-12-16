@@ -6,8 +6,8 @@
 
             <div id="container">
                <h4>Movies you have bookmarked:</h4>
-               <ul data-bind="foreach:  bookmarkTitles.$values">
-                   <li data-bind="click: $component.titleDetails, text: title.originalTitle"></li>
+               <ul data-bind="foreach:  $component.bookmarkedTitles">
+                   <li data-bind="click: $component.titleDetails, text: originalTitle"></li>
                </ul>
 
             <div id="container">
@@ -18,8 +18,8 @@
 
             <div id="container">
                <h4>Your comments:</h4>
-               <ul data-bind="foreach:  comments.$values">
-                     <li data-bind="click: $component.titleDetails, text: titleId"></li> Comment: <span data-bind="text: comment1"> <br> </span> Written on: <span data-bind="text: date"></span>
+               <ul data-bind="foreach:  $component.commentedTitles">
+                     <li data-bind="click: $component.titleDetails, text: title.originalTitle"></li> Comment: <span data-bind="text: comment1"> <br> </span> Written on: <span data-bind="text: date"></span>
                </ul>
            </div>
       </div>
