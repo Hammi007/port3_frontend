@@ -8,6 +8,7 @@
     let registerView = ko.observable("add-register");
     let userpageView = ko.observable("add-userpage");
     let genreView = ko.observable("list-genre");
+    let searchtitleview = ko.observable("search-title-view");
     let addTitleView = () => currentView("addTitleView")
 
     postman.subscribe("changeView", function (data) {
@@ -26,6 +27,7 @@
         registerView,
         userpageView,
         genreView,
-        addTitleView
+        addTitleView,
+        searchtitleview
     }
 });

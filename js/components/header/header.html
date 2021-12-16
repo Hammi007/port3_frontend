@@ -47,7 +47,7 @@
 
 
     <form class="d-inline-flex">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Search</button>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" data-bind="textInput: $component.needle">
+        <button class="btn btn-outline-light" type="submit" data-bind="click: search">Search</button>
     </form>
 </nav>

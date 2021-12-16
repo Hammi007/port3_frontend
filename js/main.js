@@ -66,6 +66,10 @@ require(['knockout'], (ko) => {
         template: { require: "text!components/genre/listGenre.html" }
     });
 
+    ko.components.register("search-title-view", {
+        viewModel: { require: "components/searched_titles/searched_titles" },
+        template: { require: "text!components/searched_titles/searched_titles.html" }
+    })
 });
 
 function getObject(theObject, needle) {

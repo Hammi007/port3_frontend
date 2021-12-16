@@ -5,12 +5,19 @@
         let registerView = () => postman.publish("changeView", "add-register");
         let signedIn = ko.observable();
         let username = ko.observable();
-
         let genre = ko.observable();
 
+        //let addTitle = () => postman.publish("changeView", "add-title");
+        let needle = ko.observable();
+
+        let search = (data) => {
+            postman.publish("search-title", needle._latestValue);
+            postman.publish("changeView", "search-title-view"); //component for searched titles.
+        }
+        
         postman.subscribe("newTitle", title => {
             ds.AddTitle(title, "newTitle");
-        });
+        })
 
         postman.subscribe("loggedIn", data => {
             loggedIn(data)
@@ -25,18 +32,17 @@
               }
          }
 
-         let logOut = () =>{
+        let logOut = () =>{
             localStorage.removeItem("username");
             localStorage.removeItem("token");
             loggedIn();
          }
 
-         let pageDetails = (data) => {
+        let pageDetails = (data) => {
             postman.publish("pageDetails", data);
             console.log(data)
             postman.publish("changeView", "add-userpage");
-        }
-
+         }
 
         let listGenre = (data, event) => {
             postman.publish("listTitlesByGenre", event.target.id);
@@ -57,7 +63,9 @@
             pageDetails,
             registerView,
             listGenre,
-            genre
+            genre,
+            search,
+            needle
         };
     };
 });
