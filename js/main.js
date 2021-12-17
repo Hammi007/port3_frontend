@@ -74,7 +74,6 @@ require(['knockout'], (ko) => {
 
 function getObject(theObject, needle) {
     var result = {};
-    var found = false
     if(theObject instanceof Array) {
         for(var i = 0; i < theObject.length; i++) {
           result = getObject(theObject[i], needle);
@@ -88,9 +87,8 @@ function getObject(theObject, needle) {
             //if(prop == 'title') {
                 if(theObject.$id === needle) {
                     return theObject;
-
                 //}
-            }
+                }
             if(theObject[prop] instanceof Object || theObject[prop] instanceof Array)
                 result = getObject(theObject[prop], needle);
                 if(result.$id === needle) {return result}

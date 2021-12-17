@@ -2,19 +2,28 @@
     return function (params) {
         let username = ko.observable();
         let password = ko.observable();
+        let repeatedPassword = ko.observable();
         let signedIn = ko.observable();
+        let error = ko.observable();
 
-        let register = () => {
+        let tryRegister = () => {
             let user = {
                 username: username(),
-                password: password()
+                password: password(),
             };
-
-            ds.register(user, data => {
-                console.log(data)
-                postman.publish("registeredIn", user)
-                postman.publish("changeView", "add-login");
-            });
+            if(password() !== repeatedPassword()){
+                error({error:"Passwords do not match"})
+                return
+            } else {
+                ds.register(user, data => {
+                    if(data.created_user !== undefined){
+                        postman.publish("registeredIn", user)
+                        postman.publish("changeView", "add-login");
+                    } else {
+                        error(data)
+                    }
+                });
+            }
         };
 
 
@@ -22,9 +31,11 @@
 
         return {
             username,
-            register,
+            tryRegister,
             password,
-            signedIn
+            signedIn,
+            repeatedPassword,
+            error
         };
     };
 });
