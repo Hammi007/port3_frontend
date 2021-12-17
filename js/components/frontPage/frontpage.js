@@ -10,7 +10,7 @@
 
         ds.getTitles(data => {
             data["data"]["$values"].forEach(title => {
-            titles.push(title);
+                titles.push(title);
             });
         });
         

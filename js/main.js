@@ -74,7 +74,6 @@ require(['knockout'], (ko) => {
 
 function getObject(theObject, needle) {
     var result = {};
-    var found = false
     if(theObject instanceof Array) {
         for(var i = 0; i < theObject.length; i++) {
           result = getObject(theObject[i], needle);
@@ -88,9 +87,8 @@ function getObject(theObject, needle) {
             //if(prop == 'title') {
                 if(theObject.$id === needle) {
                     return theObject;
-
                 //}
-            }
+                }
             if(theObject[prop] instanceof Object || theObject[prop] instanceof Array)
                 result = getObject(theObject[prop], needle);
                 if(result.$id === needle) {return result}
@@ -101,24 +99,21 @@ function getObject(theObject, needle) {
     
 function findObjectByKeyName (obj, key) {
     var result;
-
     for (var property in obj) {
-        if (obj.hasOwnProperty(property)) {
-        console.log(property)
-            if (property === key) {
-            		if(obj[key].$ref === undefined){
-                  return obj[key]; // returns the value
-                }
-            }
-            else if (typeof obj[property] === "object") {
-                // in case it is an object
-                result = iterate(obj[property], key);
-
-                if (typeof result !== "undefined") {
-                    return result;
-                }
-            }
-        }   
+      if (typeof obj[property] === "object" || obj[property] instanceof Array) {
+        // in case it is an object
+        result = findObjectByKeyName(obj[property], key);
+      }
+      if (obj.hasOwnProperty(property)) {
+        //console.log(property+ " 123")
+        if(obj["$id"]	=== key.$ref){
+          //console.log("found")
+          return obj; // returns the value
+        }
+      }
+      if (typeof result !== "undefined") {
+        return result;
+      }
     }
 }
 require(["knockout", "viewmodel"], function (ko, vm) {
