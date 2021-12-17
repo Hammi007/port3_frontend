@@ -11,8 +11,11 @@
             .then(response => response.json())
     };
 
-    let getTitles = (callback) => {
-        fetch("https://localhost:5001/api/titles") //ttasf1294qw1
+    let getTitles = (url, callback) => {
+        if (url === undefined){
+            url = "https://localhost:5001/api/titles"
+        }
+        fetch(url) //ttasf1294qw1
             .then(response => response.json())
             .then(json => callback(json));
     };    
@@ -64,8 +67,11 @@
             .then(response => response.json())
     };
 
-    let searchTitleByGenre = (queryString, callback) => {
-        fetch("https://localhost:5001/api/titles?genre="+ queryString)
+    let searchTitleByGenre = (url, queryString, callback) => {
+        if (url === undefined){
+            url = "https://localhost:5001/api/titles?genre=" + queryString
+        }
+        fetch(url)
             .then(response => response.json())
             .then(json => callback(json));
     };
@@ -186,7 +192,6 @@
                 "Authorization": "Barer " + localStorage.getItem("token")
             }
         };
-        console.log(localStorage.getItem("token"))
         fetch("https://localhost:5001/api/users/get/"+ id, params)
             .then(response => {
                 if (!response.ok) {
@@ -214,6 +219,8 @@
     }
 
 
+    let getTitlesUrlWithPageSize = size => "https://localhost:5001/api/titles" + "?pageSize=" + size;
+
 
 
 
@@ -234,6 +241,7 @@
         login,
         getUser,
         getCommentsById,
-        search
+        search,
+        getTitlesUrlWithPageSize
     }
 });

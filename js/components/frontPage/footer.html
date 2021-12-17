@@ -1,7 +1,12 @@
 <footer class="d-flex justify-content-center" 
 style="background: rgb(0 0 0 / 0.60); border-top: 2px solid rgb(0 0 0 / 0.21); padding: 20px 0px;">
     <!---Foreach x* tbody-->
-    <button type="button" class="btn btn-dark" style="margin-right: 4px; font-weight:bold;">1</button>
-    <button type="button" class="btn btn-dark" style="margin-right: 4px; font-weight: bold;">2</button>
-    <button type="button" class="btn btn-dark" style="margin-right: 4px; font-weight: bold;">3</button>
+    <button data-bind="click: showPrev, enable: enablePrev" type="button" class="btn btn-dark" style="margin-right: 4px; font-weight:bold;">Previous page</button>
+    <button type="button" class="btn btn-dark" style="margin-right: 4px; font-weight:bold;"><span data-bind="text: currentPage"></span></button>
+    <button data-bind="click: showNext, enable: enableNext "type="button" class="btn btn-dark" style="margin-right: 4px; font-weight: bold;">Next page</button>
+    <div>
+    Page size: <select data-bind="options: pageSizes, selectedOptions: selectedPageSize"></select>
+    </div>
 </footer>
+
+<pre data-bind="text: JSON.stringify(ko.toJS($data), null, 2)" style = "color: white"></pre>
