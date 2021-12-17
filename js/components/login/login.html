@@ -1,29 +1,21 @@
-    <div class="container_login center" id="login_container" style="color: aliceblue;">
-        <form class="center" style="width: 60%;">
-            <p data-bind="with: error">
-                <span data-bind="visible: error !== '', text: error"></span>
-            </p>
-            <div class="form-group">
-                Username: <input class="form-control" data-bind="value: username" />
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-
-            <div class="form-group">
-                Password: <input type="password" class="form-control" data-bind="value: password" />
-            </div>
-            <button class="btn btn-primary col-4 mt-3" data-bind="click: login">Login</button>
-        </form>
-        <!-- <p class="text-muted center" onclick="switch_to_signup()" id="log_info" style="margin-top: 230px;">Not a user yet? Register now!</p> -->
-    </div>
+<link rel="stylesheet" href="../../../../port3_frontend/css/lib/bootstrap/dist/css/log_reg.css">
 
 
-<!-- <script>
-    function switch_to_signup(){
-    document.getElementById('login_container').style.visibility='hidden';
-    document.getElementById('signup_container').style.visibility='visible';
-    }
-    function switch_to_login(){
-    document.getElementById('signup_container').style.visibility='hidden';
-    document.getElementById('login_container').style.visibility='visible';
-    }
-</script> -->
+<div class="center" id="login_container" style="text-align: center;">
+    <form class="center" style="width: 60%;">
+        <p data-bind="with: error">
+            <span data-bind="visible: error !== '', text: error"></span>
+        </p>
+        <div class="form-group">
+            <p class="align_text_left">Username: </p> 
+            <input class="form-control" data-bind="value: username" />
+            <small class="form-text text-muted align_text_left">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="form-group">
+            <p class="align_text_left">Password: </p>
+            <input type="password" class="form-control" data-bind="value: password" />
+        </div>
+        <button class="btn btn-primary col-4 mt-3" data-bind="click: login">Login</button>
+    </form>
+</div>

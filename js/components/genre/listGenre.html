@@ -1,22 +1,36 @@
 
-<p>Genre <b data-bind = "text: selected_genre"></b></p>
 
-<div class="d-flex" data-bind = "foreach: titles">
-    <div id="title_container" class="container" data-bind="click: $component.titleDetails"
-    style="text-align: center; border-radius: 5px; 
-    background: rgb(181 181 181);         
-    border: 1px solid rgb(0 0 0); 
-    padding: 20px 20px; 
-    width: 15%; 
-    margin: 40px 15px;">
+<link rel="stylesheet" href="../../../../port3_frontend/css/lib/bootstrap/dist/css/front_page.css">
 
-        <img width="200px" height="300" data-bind= "attr: {src: omdb.poster}" alt="Null">
+<div style="background-color: black; border-bottom: 1px solid rgba(214, 121, 45, 0.514);">
+
+    <div class="d-flex" style="padding: 10px 30px; margin-left: 5px; 
+    width: 19%;
+    text-align: left;">
+    <p style="font-size: 30px; margin-top: 5px; color: white;">Genre: </p>
+    <p style="font-size: 25px; margin-left: 10px; margin-top: 12px;">
+        <b style="color: rgb(214, 121, 45);" data-bind = "text: selected_genre"></b>
+    </p>
+    </div>
+</div>
+
+
+<div class="flex-container wrap" data-bind = "foreach: titles">
+    <div class="title_container" data-bind="click: $component.titleDetails, title : titleId">       
+        <img id=imd width="200px" height="300" data-bind= "attr: {src: omdb.poster, click : $component.titleDetails}">
+
         <p class="bottom-0" style="text-align:center; margin-top: 15px; font-weight:bold; border-top: 2px solid white; padding-top: 10px"></p>
+
         <span data-bind="text: originalTitle" style="font-weight: bold; font-size: 14px;"></span>
         
         <div style="font-size: 12px;">
+            <p data-bind="text: titleType.toUpperCase()" style="margin: 10px 0px;"></p>
             <span data-bind="text: titleRating.ratingAvg"></span>/10
             <span class="iconify" data-icon="ant-design:star-filled" style="color: gold; padding-top: 2px;"></span>
+            <div class="d-flex justify-content-center" style="margin-top: 5px;">
+                <p style="font-weight: bold; margin-right: 6px;">Votes:   </p> 
+                <span data-bind="text: titleRating.votes" style="font-style: bold;"></span>
+            </div>
         </div> 
     </div>
 </div>
