@@ -1,6 +1,5 @@
 ﻿define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
     return function (params) {
-
         let pageSizes = ko.observableArray();
         let selectedPageSize = ko.observableArray([10]);
         let prev = ko.observable();
