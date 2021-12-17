@@ -80,7 +80,7 @@
     
     <div data-bind="foreach: data.$values">
         
-        <div class="d-flex desc_container center" id="match" style="background-color: rgb(0, 0, 0);">
+        <div class="d-flex desc_container center" id="match" style="background-color: rgb(0, 0, 0);" data-bind="click: $component.titleDetails">
         <img id="imd" width="260px" height="400px" data-bind="attr:{src: genres.$values[0].title.omdb.poster}" alt="">
             
             <div style="background: rgba(0, 0, 0, 0.521);">

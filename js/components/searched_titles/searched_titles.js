@@ -13,7 +13,11 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
         ds.search(search_needle(), setData);
     });
 
+    let titleDetails = (data) => {
+        postman.publish("titleDetails", data);
+        postman.publish("changeView", "title-details");
 
+    }
     function setData(data) 
     {
         console.log(data)
@@ -34,7 +38,8 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
 
     return {
         search_needle,
-        searched_titles
+        searched_titles,
+        titleDetails
     }
     };
 });
