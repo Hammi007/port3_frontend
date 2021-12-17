@@ -12,6 +12,7 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
         {
             data.trailer_link = "placeholder"
             data.thumbnail_link = "placeholder"
+            console.log(data)
             titleObject(data); 
             var data_save = titleObject()
             fetch('https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&safeSearch=none&type=video&key=AIzaSyDhxnmAlr70HvNE0cMtGIDGc9bPAKYMsa8&q='+data.primaryTitle + " trailer")
