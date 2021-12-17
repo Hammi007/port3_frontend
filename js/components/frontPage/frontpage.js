@@ -7,7 +7,6 @@
         let next = ko.observable();
         let currentPage = ko.observable();
         let searchfn = params.searchfn
-        debugger
        
         
 
