@@ -3,15 +3,12 @@
 <link rel="stylesheet" href="../../../css/lib/bootstrap/dist/css/searched_titles.css">
 <style>
     
-    #imd{
-        background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAmOXK39y1kgHp4rnTsjrmR-CXYJBjytBUWlG4nK476p-Kqp4GW1IoUe82CLfvvvdKvc&usqp=CAU');  
-        background-repeat: no-repeat;
-        background-size: cover; 
-    }
-
-    body{
-    background-color: rgba(155, 155, 155, 0.596);
+#imd{
+    background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAmOXK39y1kgHp4rnTsjrmR-CXYJBjytBUWlG4nK476p-Kqp4GW1IoUe82CLfvvvdKvc&usqp=CAU');  
+    background-repeat: no-repeat;
+    background-size: cover; 
 }
+
 
 .center{
     margin-right: auto;
@@ -21,19 +18,15 @@
 .desc_container{
     width: 1000px;
     height: auto;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(0, 0, 0);
 }
 
 .desc_container div{
     padding: 12px 20px;
-    background-color: rgb(58, 58, 57);
     color: white;
 }
 
 #votes_container div{
     padding: 20px 20px;
-    background-color: rgb(58, 58, 57);
     color: white;
 }
 
@@ -74,9 +67,12 @@
 }   
 
 #match{
-    height: 360px; /*matches poster height*/
-    overflow-y: hidden;
-    margin-bottom: 20px;
+    /*height: 400px;*/ /*matches poster height
+    overflow-y: hidden;*/
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: 1px solid rgb(214, 121, 45); 
+    padding: 20px;
 }
 </style>
 
@@ -84,11 +80,10 @@
     
     <div data-bind="foreach: data.$values">
         
-        <div class="d-flex desc_container center" id="match">
-        <p data-bind="text: titleId"></p>
-        <img id="imd" width="240px" height="360px" data-bind="attr:{src: genres.$values[0].title.omdb.poster}" alt="">
+        <div class="d-flex desc_container center" id="match" style="background-color: rgb(0, 0, 0);">
+        <img id="imd" width="260px" height="400px" data-bind="attr:{src: genres.$values[0].title.omdb.poster}" alt="">
             
-            <div>
+            <div style="background: rgba(0, 0, 0, 0.521);">
                 <h4>
                     <span data-bind="text: originalTitle"></span>
                 </h4>   
@@ -117,19 +112,17 @@
                                 <li data-bind="text: genreName"></li>
                             </ul>
                         </div>
-
                     </div>
     
                     <div id="votes_container">
-
                         <div>
                             <h4>Votes</h4>
-                            <p data-bind="text: genres.$values[0].title.titleRating.votes"></p>
+                            <p data-bind="text: genres.$values[0].title.titleRating.votes" style="font-size: 12px;"></p>
                         </div>
 
                         <div>
                             <h4>Rating</h4>
-                            <p data-bind="text: genres.$values[0].title.titleRating.ratingAvg"></p>
+                            <p data-bind="text: genres.$values[0].title.titleRating.ratingAvg" style="font-size: 12px;"></p>
                         </div>
 
                     </div>
