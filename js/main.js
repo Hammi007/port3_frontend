@@ -97,6 +97,28 @@ function getObject(theObject, needle) {
     return result
 }
 
+function findObjectByKeyName (obj, key) {
+    var result;
+
+    for (var property in obj) {
+        if (obj.hasOwnProperty(property)) {
+        console.log(property)
+            if (property === key) {
+            		if(obj[key].$ref === undefined){
+                  return obj[key]; // returns the value
+                }
+            }
+            else if (typeof obj[property] === "object") {
+                // in case it is an object
+                result = iterate(obj[property], key);
+
+                if (typeof result !== "undefined") {
+                    return result;
+                }
+            }
+        }   
+    }
+}
 
 
 require(["knockout", "viewmodel"], function (ko, vm) {
