@@ -104,7 +104,7 @@ function findObjectByKeyName (obj, key) {
     for (var property in obj) {
       if (typeof obj[property] === "object" || obj[property] instanceof Array) {
         // in case it is an object
-        result = iterate(obj[property], key);
+        result = findObjectByKeyName(obj[property], key);
       }
       if (obj.hasOwnProperty(property)) {
         //console.log(property+ " 123")
