@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="/css/lib/bootstrap/dist/css/front_page.css">
 
 <div style="background-color: black; padding: 22px 0px; border-bottom: 1px solid rgba(214, 121, 45, 0.514);">
-  <h4 class="text-white" style="margin: 11px 15px; font-size: 35px;">TOP 12 TITLES</h4>
+  <h4 class="text-white" style="margin: 11px 15px; font-size: 35px;">TOP TITLES</h4>
 </div>
 
 <div class="flex-container wrap" data-bind = "foreach: titles">
     <div class="title_container" data-bind="click: $component.titleDetails, title : titleId">       
-        <img id=imd width="200px" height="300" data-bind= "attr: {src: omdb.poster, click : $component.titleDetails}">
+        <img id=imd width="95%px" height="69%" data-bind= "attr: {src: omdb.poster, click : $component.titleDetails}">
 
         <p class="bottom-0" style="text-align:center; margin-top: 15px; font-weight:bold; border-top: 2px solid white; padding-top: 10px"></p>
 
