@@ -2,7 +2,9 @@
 
 <style>
    #profile_container{
-      background-color: aliceblue;
+      background-color: black;
+      color: white;
+      height: 900px;
    }
 
    #profile_container ul{
@@ -17,10 +19,12 @@
    
    #hist{
        padding: 15px 20px;
+       border-bottom: 1px solid rgba(255, 166, 0, 0.418);
    }
    
    #user{
        padding: 15px 20px;
+       border-bottom: 1px solid rgba(219, 130, 57, 0.801);
    }
    #bookmark{
        padding: 15px 20px;
@@ -30,7 +34,6 @@
    <div class="align-items-center justify-content-center" data-bind="with: user" id="profile_container">
        <div id="user">
            <h1>Welcome  <span data-bind=" text: username"></span></h1>
-           <h2>You joined on: <span data-bind=" text: createdDate"></span></h2>
        </div>
        <div id="hist">
            

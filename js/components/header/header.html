@@ -31,19 +31,16 @@
                 
             
             <li class="nav-item" style="margin-right: 20px;">
-                <a data-bind="visible: !signedIn(), click: loginView" class="nav-link">Login</a>
-                <a data-bind="visible: signedIn(), click: logOut" class="nav-link">Log out</a>
+                <a href="" data-bind="visible: !signedIn(), click: loginView" class="nav-link">Login</a>
+                <a href="" data-bind="visible: signedIn(), click: logOut" class="nav-link">Log out</a>
             </li>
 
             <li class="nav-item">
-                <a data-bind="visible: !signedIn(), click: registerView" class="nav-link">Register</a>
+                <a href="" data-bind="visible: !signedIn(), click: registerView" class="nav-link">Register</a>
             </li>
             
-            <li class = "nav-item" data-bind="visible: signedIn()"> <p> Welcome <span data-bind=" text: username"></span></p>
-            </li>
-
             <li class = "nav-item">
-                <a><button data-bind="visible: signedIn(), click: pageDetails" class="btn btn-primary">Userpage</button></a>
+                <a href="" data-bind="visible: signedIn(), click: pageDetails, text: username" class="nav-link"></a>
             </li>
 
         </ul>
