@@ -2,7 +2,7 @@
 style="background: rgb(0 0 0 / 0.60); border-top: 2px solid rgb(0 0 0 / 0.21); padding: 20px 0px;">
     <!---Foreach x* tbody-->
     <button data-bind="click: showPrev, enable: enablePrev" type="button" class="btn btn-dark" style="margin-right: 4px; font-weight:bold;">Previous page</button>
-    <button type="button" class="btn btn-dark" style="margin-right: 4px; font-weight:bold;"><span data-bind="text: currentPage"></span></button>
+    <button type="button" class="btn btn-dark" style="margin-right: 4px; font-weight:bold;"><span data-bind="text: pagenum"></span></button>
     <button data-bind="click: showNext, enable: enableNext "type="button" class="btn btn-dark" style="margin-right: 4px; font-weight: bold;">Next page</button>
     <div>
     Page size: <select data-bind="options: pageSizes, selectedOptions: selectedPageSize"></select>

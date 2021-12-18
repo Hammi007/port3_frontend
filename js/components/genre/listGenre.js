@@ -3,7 +3,7 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
         let titles = ko.observableArray([]);
         let searchfn = params.searchfn
         var selected_genre = ko.observable();
-        let pageSizes = ko.observableArray();
+        let pageSizes = ko.observableArray([10,20,25,100]);
         let selectedPageSize = ko.observableArray([10]);
         let prev = ko.observable();
         let next = ko.observable();
@@ -15,17 +15,16 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
 
         }   
         function setData(data){
-            titles(data.title.$values);
+            titles(data.$values);
         }
 
         getData = (url) =>{
             ds.searchTitleByGenre(url, selected_genre(), data => {
-                setData(data)
-                pageSizes(data.pageSizes);
-                currentPage(data.page)
-                prev(data.prev || undefined);
-                next(data.next || undefined);
-                titles(data.title.$values);
+                setData(data.data)
+                prev(data.paging.previousPage || undefined);
+                next(data.paging.nextPage || undefined);
+                data.paging.nextPage += "&genre="+selected_genre()
+                data.paging.previousPage += "&genre="+selected_genre()
                 postman.publish("changePage", data);
             });
         }
@@ -39,6 +38,7 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
             if(typeof(data) == "string"){
                 console.log("Set selected genre to: " + data)
                 selected_genre(data)
+                postman.publish("changed_genre", selected_genre)
                 getData(undefined ,selected_genre, setData)
                 // ds.searchTitleByGenre(selected_genre(), setData)
             }
