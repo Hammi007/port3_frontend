@@ -22,17 +22,10 @@
                 prev(data.prev || undefined);
                 next(data.next || undefined);
                 titles(data.title.$values);
-                // callback(data);
                 postman.publish("changePage", data);
             });
         }
         searchfn.fn = getData
-        // getData2 = url => {
-        //     getData(url, data => {
-        //     postman.publish("changePage", {data, fn : getData});
-        //     })
-        // }
-
 
         getData();
         

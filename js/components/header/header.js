@@ -6,6 +6,21 @@
         let signedIn = ko.observable();
         let username = ko.observable();
         let genre = ko.observable();
+        let genreList = ko.observableArray([]);
+        genre('Western')
+
+        let getGenres =(data) => {
+            ds.getGenres(data => {
+                genreList(data.$values)
+                console.log(genreList())
+            })
+        }
+        getGenres();
+
+
+
+
+
 
         //let addTitle = () => postman.publish("changeView", "add-title");
         let needle = ko.observable();
@@ -65,7 +80,9 @@
             listGenre,
             genre,
             search,
-            needle
+            needle,
+            genreList,
+            getGenres
         };
     };
 });
