@@ -1,27 +1,53 @@
-<div class="desc_container center"> 
-   <div class="d-flex" data-bind="with: user">
-      <div>
-            <div><h1>Welcome to your homepage: <span data-bind=" text: username"></span></h1></div>
-            <h2>You joined on: <span data-bind=" text: createdDate"></span></h2>
 
-            <div id="container">
-               <h4>Movies you have bookmarked:</h4>
-               <ul data-bind="foreach:  $component.bookmarkedTitles">
-                   <li data-bind="click: $component.titleDetails, text: originalTitle"></li>
-               </ul>
 
-            <div id="container">
-               <h4>Your searches:</h4>
-               <ul data-bind="foreach:  searchHistories.$values">
-                     <li data-bind="text: searchString"></li>
-               </ul>
+<style>
+   #profile_container{
+      background-color: aliceblue;
+   }
 
-            <div id="container">
-               <h4>Your comments:</h4>
-               <ul data-bind="foreach:  $component.commentedTitles">
-                     <li data-bind="click: $component.titleDetails, text: title.originalTitle"></li> Comment: <span data-bind="text: comment1"> <br> </span> Written on: <span data-bind="text: date"></span>
-               </ul>
+   #profile_container ul{
+       list-style: none;
+       margin: 0;
+       padding: 0;    
+   }
+   
+   #profile_container ul li{
+       margin-right: 10px;
+   }
+   
+   #hist{
+       padding: 15px 20px;
+   }
+   
+   #user{
+       padding: 15px 20px;
+   }
+   #bookmark{
+       padding: 15px 20px;
+   }
+   </style>
+   
+   <div class="align-items-center justify-content-center" data-bind="with: user" id="profile_container">
+       <div id="user">
+           <h1>Welcome  <span data-bind=" text: username"></span></h1>
+           <h2>You joined on: <span data-bind=" text: createdDate"></span></h2>
+       </div>
+       <div id="hist">
+           
+           <div class="d-flex">
+               <h4 style="margin-right: 10px;">Search History</h4>
+               <p style="font-size: 20px;">(Last 10 searches)</p>
            </div>
-      </div>
+           
+           <ul data-bind="foreach:  searchHistories.$values">
+               <li data-bind="text: searchString"></li>
+           </ul>
+       </div>
+       
+       <div id="bookmark">
+           <h4>Bookmarked titles</h4>
+           <ul data-bind="foreach:  $component.bookmarkedTitles">
+               <li data-bind="click: $component.titleDetails, text: originalTitle"></li>
+           </ul>
+       </div>
    </div>
-</div>

@@ -10,10 +10,25 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Genre
                 </a>
-                <div data-bind="foreach: genreList" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                     <a href data-bind= "attr: {id: $data}, text:  $data, click: $component.listGenre" class="dropdown-item"></a>  
+
+                <div class="dropdown-menu">
+                    <div class=" d-flex" aria-labelledby="navbarDropdownMenuLink">
+                        <div data-bind="foreach: genreList.slice(0,7)">
+                            <a href data-bind= "attr: {id: $data}, text:  $data, click: $component.listGenre" class="dropdown-item"></a>  
+                        </div>
+                        <div data-bind="foreach: genreList.slice(7,14)">
+                            <a href data-bind= "attr: {id: $data}, text:  $data, click: $component.listGenre" class="dropdown-item"></a>  
+                        </div>
+                        <div data-bind="foreach: genreList.slice(14,21)">
+                            <a href data-bind= "attr: {id: $data}, text:  $data, click: $component.listGenre" class="dropdown-item"></a>  
+                        </div>
+                        <div data-bind="foreach: genreList.slice(21,28)">
+                            <a href data-bind= "attr: {id: $data}, text:  $data, click: $component.listGenre" class="dropdown-item"></a>  
+                        </div>
+                    </div>
                 </div>
-            
+                
+                
             
             <li class="nav-item" style="margin-right: 20px;">
                 <a data-bind="visible: !signedIn(), click: loginView" class="nav-link">Login</a>
@@ -30,6 +45,7 @@
             <li class = "nav-item">
                 <a><button data-bind="visible: signedIn(), click: pageDetails" class="btn btn-primary">Userpage</button></a>
             </li>
+
         </ul>
     </div>
 
