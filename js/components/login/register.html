@@ -1,39 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/lib/bootstrap/dist/css/login.css"> -->
-</head>
-<body>
-    <div class="container_login center" id="signup_container" style="color: aliceblue;">
-        <form class="center" style="width: 60%;">
-            <p data-bind="with: error">
-                <span data-bind="visible: error !== '', text: error"></span>
-            </p> 
-            <div class="form-group">
-                Username: <input class="form-control" data-bind="value: username" />
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            
-            <div class="form-group">
-                Password: <input type="password" class="form-control" data-bind="value: password" />
-            </div>
+<link rel="stylesheet" href="../../../../port3_frontend/css/lib/bootstrap/dist/css/log_reg.css">
 
-            <div class="form-group">
-                Repeat your password: <input type="password" class="form-control" data-bind="value: repeatedPassword" />
-            </div>
-            <button class="btn btn-primary col-4 mt-3" data-bind="click: tryRegister">Signup!</button>
-        </form>
-        <!-- <p class="text-muted center" onclick="switch_to_login()" id="log_info" style="margin-top: 230px;">Already a user? Log in here!</p> -->
-    </div>
 
-</body>
-</html>
+<div class="center" id="signup_container" style="text-align: center;">
+    <form class="center" style="width: 60%;">
+        <p data-bind="with: error">
+            <span data-bind="visible: error !== '', text: error"></span>
+        </p> 
+        <div class="form-group">
+            <p class="align_text_left">Username:</p>
+            <input class="form-control" data-bind="value: username" />
+            <small class="form-text text-muted align_text_left">We'll never share your email with anyone else.</small>
+        </div>
+        
+        <div class="form-group">
+            <p class="align_text_left">Password: </p>
+            <input type="password" class="form-control" data-bind="value: password" />
+        </div>
+
+        <div class="form-group">
+            <p class="align_text_left">Repeat your password: </p>
+            <input type="password" class="form-control" data-bind="value: repeatedPassword" />
+        </div>
+        <button class="btn btn-primary col-4 mt-3" data-bind="click: tryRegister">Signup!</button>
+    </form>
+</div>
+
