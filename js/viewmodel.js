@@ -11,7 +11,11 @@
     let searchtitleview = ko.observable("search-title-view");
     let addTitleView = () => currentView("addTitleView")
     let searchfn = {}
-
+    var footerVisible = ko.observable(true);
+    
+    postman.subscribe("show_footer!", boolean => {
+        footerVisible(boolean)
+    });
     postman.subscribe("changeView", function (data) {
     currentView(data);
 
@@ -30,6 +34,7 @@
         genreView,
         addTitleView,
         searchtitleview,
-        searchfn
+        searchfn, 
+        footerVisible
     }
 });

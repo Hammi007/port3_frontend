@@ -118,7 +118,7 @@ function findObjectByKeyName (obj, key) {
 }
 require(["knockout", "viewmodel"], function (ko, vm) {
     //console.log(vm.);
-
+    
     ko.applyBindings(vm);
 
 });
