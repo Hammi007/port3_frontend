@@ -1,27 +1,24 @@
 ﻿define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
      return function (params) {
         let titles = ko.observableArray([]);
-        let pageSizes = ko.observableArray();
-        let selectedPageSize = ko.observableArray([10]);
+        let pageSizes = ko.observableArray([10,20,25,100]);
+        let selectedPageSize = ko.observable(10);
         let prev = ko.observable();
         let next = ko.observable();
-        let currentPage = ko.observable();
         let searchfn = params.searchfn
        
-        
-
         let titleDetails = (data) => {
             postman.publish("titleDetails", data);
             postman.publish("changeView", "title-details");
         }
 
         getData = (url) =>{
+            console.log(url)
             ds.getTitles(url, data => {
-                pageSizes(data.pageSizes);
-                currentPage(data.page)
-                prev(data.prev || undefined);
-                next(data.next || undefined);
-                titles(data.title.$values);
+                prev(data.paging.previousPage || undefined);
+                next(data.paging.nextPage || undefined);
+                titles(data.data.$values);
+
                 postman.publish("changePage", data);
             });
         }
@@ -34,7 +31,6 @@
             titleDetails,
             pageSizes,
             selectedPageSize,
-            currentPage,
             prev,
             getData
         };
