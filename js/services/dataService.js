@@ -213,18 +213,11 @@
             }).then(json => callback(json));
     }
 
-
-    let getTitlesUrlWithPageSize = size => "https://localhost:5001/api/titles" + "?pageSize=" + size;
-
     let getGenres = (callback) => {
         fetch("https://localhost:5001/api/titles/genre") //ttasf1294qw1
             .then(response => response.json())
             .then(json => callback(json));
     }; 
-
-
-
-
 
     return {
         AddTitle,
