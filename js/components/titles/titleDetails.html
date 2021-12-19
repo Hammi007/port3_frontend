@@ -6,9 +6,7 @@
         background-repeat: no-repeat;
         background-size: cover; 
     }
-
     
-
     @media (max-width: 1500px) {
 
         .title_player{
@@ -72,30 +70,42 @@
                     <p data-bind="text: omdb.plot"></p>
                 </div>
     
-                <div id="mini_container">
+                <div id="mini_container" class="d-flex">
     
-                    <div id="director">
-                        <h4>Director</h4>
-                        <p data-bind="text: director.person.personName"></p>
-                    </div>
-            
-                    <div id="stars">
-                        <h4>Stars: </h4>
-                        <ul data-bind="foreach: principal.$values">
-                            <li data-bind="text: person.personName" style="margin-right: 10px;"></li>
-                        </ul>
-                    </div>
+                    <div style="margin-right: 200px;">
+                        <div id="director">
+                            <h4>Director</h4>
+                            <p data-bind="text: director.person.personName"></p>
+                        </div>
+                
+                        <div id="stars">
+                            <h4>Stars: </h4>
+                            <ul data-bind="foreach: principal.$values">
+                                <li data-bind="text: person.personName" style="margin-right: 10px;"></li>
+                            </ul>
+                        </div>
+        
+                        <div id="genre">
+                            <h4>Genre:</h4>
+                            <ul data-bind="foreach: genres.$values">
+                                <li data-bind="text: genreName"></li>
+                            </ul>
+                        </div>
     
-                    <div id="genre">
-                        <h4>Genre:</h4>
-                        <ul data-bind="foreach: genres.$values">
-                            <li data-bind="text: genreName"></li>
-                        </ul>
+                        <div id="director" style="margin-top: 10px;" data-bind="visible: omdb.awards != 'N/A'">
+                            <h4>Awards:</h4>
+                            <p data-bind="text: omdb.awards"></p>
+                        </div>
                     </div>
 
-                    <div id="director" style="margin-top: 10px;" data-bind="visible: omdb.awards != 'N/A'">
-                        <h4>Awards:</h4>
-                        <p data-bind="text: omdb.awards"></p>
+                    <div>
+                        <div id="director">
+                            <h4>Rating</h4>
+                            <p data-bind="text: titleRating.ratingAvg+' / '+'10'"></p>
+                            <h4>Votes</h4>
+                            <p data-bind="text: titleRating.votes"></p>
+                        </div>
+
                     </div>
 
                 </div>
