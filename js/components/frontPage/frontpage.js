@@ -16,6 +16,7 @@
 
         getData = (url) =>{
             ds.getTitles(url, data => {
+                console.log("callback")
                 prev(data.paging.previousPage || undefined);
                 next(data.paging.nextPage || undefined);
                 titles(data.data.$values);
