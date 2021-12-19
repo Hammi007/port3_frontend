@@ -236,7 +236,6 @@
         getUser,
         getCommentsById,
         search,
-        getTitlesUrlWithPageSize,
         getGenres
     }
 });
