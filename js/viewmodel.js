@@ -1,14 +1,14 @@
 ﻿﻿define(["knockout", "postman"], function (ko, postman) {
-    let currentView = ko.observable("add-frontpage");
-    let headerView = ko.observable("add-header");
-    let frontpageView = ko.observable("add-frontpage");
-    let titleDetailsView = ko.observable("title-details");
-    let frontpagefooterView = ko.observable("add-frontpage-footer");
-    let loginView = ko.observable("add-login");
-    let registerView = ko.observable("add-register");
-    let userpageView = ko.observable("add-userpage");
-    let genreView = ko.observable("list-genre");
-    let searchtitleview = ko.observable("search-title-view");
+    let currentView = ko.observable("vm-frontpage");
+    let headerView = ko.observable("vm-header");
+    let frontpageView = ko.observable("vm-frontpage");
+    let titleDetailsView = ko.observable("vm-title-details");
+    let frontpagefooterView = ko.observable("vm-frontpage-footer");
+    let loginView = ko.observable("vm-login");
+    let registerView = ko.observable("vm-register");
+    let userpageView = ko.observable("vm-userpage");
+    let genreView = ko.observable("vm-list-genre");
+    let searchtitleview = ko.observable("vm-search-title-view");
     let addTitleView = () => currentView("addTitleView")
     let searchfn = {}
     var footerVisible = ko.observable(true);
