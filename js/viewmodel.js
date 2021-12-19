@@ -8,9 +8,9 @@
     let registerView = ko.observable("vm-register");
     let userpageView = ko.observable("vm-userpage");
     let genreView = ko.observable("vm-list-genre");
-    let searchtitleview = ko.observable("vm-search-title-view"); vm-search-title-view
-    let addTitleView = () => currentView("addTitleView") addTitleView
-    let s letearchfn = {}
+    let searchtitleview = ko.observable("vm-search-title-view");
+    let addTitleView = () => currentView("addTitleView")
+    let searchfn = {}
     var footerVisible = ko.observable(true);
     
     postman.subscribe("show_footer!", boolean => {

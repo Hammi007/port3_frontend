@@ -8,7 +8,7 @@
              ds.login(user, data => {
                 localStorage.setItem("username", data.username);
                 localStorage.setItem("token", data.token);
-                 postman.publish("changeView", "add-frontpage");
+                 postman.publish("changeView", "vm-frontpage");
                  postman.publish("loggedIn", data)
               });
         });
@@ -26,7 +26,7 @@
                 if(data.token !== undefined){
                     localStorage.setItem("username", data.username);
                     localStorage.setItem("token", data.token);
-                    postman.publish("changeView", "add-frontpage");
+                    postman.publish("changeView", "vm-frontpage");
                     postman.publish("loggedIn", data)
                 } else {
                 error(data)

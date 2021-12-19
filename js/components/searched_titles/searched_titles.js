@@ -15,7 +15,7 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
 
     let titleDetails = (data) => {
         postman.publish("titleDetails", data);
-        postman.publish("changeView", "title-details");
+        postman.publish("changeView", "vm-title-details");
 
     }
     function setData(data) 

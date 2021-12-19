@@ -15,58 +15,61 @@ require.config({
 
 // component registration
 require(['knockout'], (ko) => {
+    
+    /*
     ko.components.register("list-title", {
         viewModel: { require: "components/titles/listTitle" },
         template: { require: "text!components/titles/listTitle.html" }
     });
+    */
 
-    ko.components.register("add-header", {
+    ko.components.register("vm-header", {
         viewModel: { require: "components/header/header" },
         template: { require: "text!components/header/header.html" }
     });
 
-    ko.components.register("add-title", {
+    ko.components.register("vm-title", {
         viewModel: { require: "components/titles/addTitle" },
         template: { require: "text!components/titles/addTitle.html" }
     });
 
-    ko.components.register("title-details", {
+    ko.components.register("vm-title-details", {
         viewModel: { require: "components/titles/titleDetails" },
         template: { require: "text!components/titles/titleDetails.html" }
     });
 
-    ko.components.register("add-frontpage", {
+    ko.components.register("vm-frontpage", {
         viewModel: { require: "components/frontPage/frontpage" },
         template: { require: "text!components/frontPage/frontpage.html" }
     });
 
-    ko.components.register("add-frontpage-footer", {
+    ko.components.register("vm-frontpage-footer", {
         viewModel: { require: "components/frontPage/footer" },
         template: { require: "text!components/frontPage/footer.html" }
     });
 
-    ko.components.register("add-login", {
+    ko.components.register("vm-login", {
         viewModel: { require: "components/login/login" },
         template: { require: "text!components/login/login.html" }
     });
 
-    ko.components.register("add-register", {
+    ko.components.register("vm-register", {
         viewModel: { require: "components/login/register" },
         template: { require: "text!components/login/register.html" }
     });
 
 
-    ko.components.register("add-userpage", {
+    ko.components.register("vm-userpage", {
         viewModel: { require: "components/users/userPage" },
         template: { require: "text!components/users/userPage.html" }
     });
 
-    ko.components.register("list-genre", {
+    ko.components.register("vm-list-genre", {
         viewModel: { require: "components/genre/listGenre" },
         template: { require: "text!components/genre/listGenre.html" }
     });
 
-    ko.components.register("search-title-view", {
+    ko.components.register("vm-search-title-view", {
         viewModel: { require: "components/searched_titles/searched_titles" },
         template: { require: "text!components/searched_titles/searched_titles.html" }
     })
