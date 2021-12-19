@@ -101,7 +101,12 @@
                     <div>
                         <div id="director">
                             <h4>Rating</h4>
-                            <p data-bind="text: titleRating.ratingAvg+' / '+'10'"></p>
+                            <div class="d-flex">
+                                <p data-bind="text: titleRating.ratingAvg+' / '+'10'"></p>
+                                <span class="iconify" data-icon="ant-design:star-filled" style="color: gold; padding-top: 2px; padding-left: 5px;"></span>
+                            </div>
+                            
+
                             <h4>Votes</h4>
                             <p data-bind="text: titleRating.votes"></p>
                         </div>
