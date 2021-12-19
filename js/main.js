@@ -8,7 +8,8 @@ require.config({
         text: "lib/requirejs/text",
         jquery: "lib/jquery/dist/jquery.min",
         knockout: "lib/knockout/build/output/knockout-latest.debug",
-        dataService: "services/dataService", postman: "services/postman"
+        dataService: "services/dataService",
+        postman: "services/postman"
     }
 });
 
@@ -72,6 +73,7 @@ require(['knockout'], (ko) => {
     })
 });
 
+// An example of how to get objects based on a needle, WIP
 function getObject(theObject, needle) {
     var result = {};
     if(theObject instanceof Array) {
@@ -96,7 +98,7 @@ function getObject(theObject, needle) {
     }
     return result
 }
-    
+// An example of how to get objects based on a needle, WIP
 function findObjectByKeyName (obj, key) {
     var result;
     for (var property in obj) {

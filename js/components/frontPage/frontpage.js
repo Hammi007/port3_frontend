@@ -9,7 +9,6 @@
         let isVisible = ko.observable(true);
        
         let titleDetails = (data) => {
-
             postman.publish("titleDetails", data);
             postman.publish("changeView", "title-details");
         }
