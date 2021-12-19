@@ -29,7 +29,6 @@
 
 
         postman.subscribe("changePage", data => {
-            console.log(data.paging.previousPage.toString())
             prev(data.paging.previousPage || undefined);
             next(data.paging.nextPage || undefined);
             
