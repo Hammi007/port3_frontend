@@ -9,7 +9,6 @@
     let userpageView = ko.observable("vm-userpage");
     let genreView = ko.observable("vm-list-genre");
     let searchtitleview = ko.observable("vm-search-title-view");
-    let addTitleView = () => currentView("addTitleView")
     let searchfn = {}
     var footerVisible = ko.observable(true);
     
@@ -27,12 +26,10 @@
         frontpageView,
         frontpagefooterView,
         titleDetailsView,
-        addTitleView,
         loginView,
         registerView,
         userpageView,
         genreView,
-        addTitleView,
         searchtitleview,
         searchfn, 
         footerVisible

@@ -1,15 +1,4 @@
 ﻿define([], () => {
-    let AddTitle = (title) => {
-        let param = {
-            method: "POST",
-            body: JSON.stringify(title),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }
-        fetch("https://localhost:5001/api/titles/add", param)
-            .then(response => response.json())
-    };
 
     let getTitles = (url, callback) => {
         if (url === undefined){
@@ -38,7 +27,7 @@
             .then(json => callback(json));
     };
 
-    let removeTitle = (title) => {
+    let removeTitle = (title) => { // :'(
         let param = {
             method: "DELETE",
             body: JSON.stringify(title),
@@ -50,7 +39,7 @@
             .then(response => response.json())
     };
 
-    let bookmarkTitle = (bookmarkTitle) => {
+    let bookmarkTitle = (bookmarkTitle) => { // :'(
         let param = {
             method: "POST",
             body: JSON.stringify(bookmarkTitle),
@@ -71,7 +60,7 @@
             .then(json => callback(json));
     };
 
-    let commentTitle = (comment) => {
+    let commentTitle = (comment) => { // :'(
         let param = {
             method: "POST",
             body: JSON.stringify(comment),
@@ -83,29 +72,7 @@
             .then(response => response.json())
     };
 
-    // let getHistory = (queryString, callback) => {
-    //     fetch("https://localhost:5001/api/titles/gethistory", queryString)
-    //         .then(response => response.json())
-    //         .then(json => callback(json));
-    // };
-
-
-    // let getRatingForTitle = (title) => {
-    //     var returns
-    //     console.log(title)
-    //     fetch("https://localhost:5001/api/titles/rating", {
-    //         method: 'POST',
-    //         body: JSON.stringify({"titleId" : title}),
-    //         headers: {
-    //           'Accept': 'application/json',
-    //           'Content-Type': 'application/json'}
-    //         })
-    //         .then(response => response.json())
-    //         .then(json => returns = json)
-    //     return returns
-    // };
-
-    let rateTitle = (urt) => {
+    let rateTitle = (urt) => { // :'(
         let param = {
             method: "POST",
             body: JSON.stringify(urt),
@@ -116,22 +83,6 @@
         fetch("https://localhost:5001/api/titles/comments", param)
             .then(response => response.json())
     };
-
-
-    let updateTitle = (id, title) => {
-        let param = {
-            method: "PUT",
-            body: JSON.stringify(title),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }
-        fetch("https://localhost:5001/api/titles/", param, id)
-            .then(response => response.json())
-    };
-
-    
-
 
     let register = (user, callback) => {
         let params = {
@@ -159,8 +110,6 @@
             .then(json => callback(json));
     }
 
-
-
     let getHistory = (queryString) => {
         let params = {
             method: "GET",
@@ -169,7 +118,6 @@
             },
             param: new URLSearchParams(queryString).toString()
         };
-        console.log(params)
         return fetch("https://localhost:5001/api/titles/gethistory", params)
             .then(response => {
                 if (!response.ok) {
@@ -178,7 +126,6 @@
                 return response.json();
             });
     }
-
 
     let getUser = (username, callback) => {
         let params = {
@@ -195,7 +142,6 @@
                 return response.json()
             }).then(json => callback(json));
     }
-
 
     let getCommentsById = (id, callback) => {
         let params = {
@@ -220,7 +166,6 @@
     }; 
 
     return {
-        AddTitle,
         getTitles,
         getTitle,
         getStars,
@@ -230,7 +175,6 @@
         commentTitle,
         getHistory,
         rateTitle,
-        updateTitle,
         register,
         login,
         getUser,

@@ -8,7 +8,6 @@
         let searchfn = params.searchfn
         let selectedGenre = ko.observable();
         let pagenum = ko.observable();
-        let visible = ko.observable(true);
 
         let showPrev = () => {
             let getData = searchfn.fn
@@ -57,8 +56,7 @@
             pagenum,
             enableNext,
             enablePrev,
-            currentPage,
-            visible
+            currentPage
         }
 
     };

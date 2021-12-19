@@ -29,11 +29,6 @@ require(['knockout'], (ko) => {
         template: { require: "text!components/header/header.html" }
     });
 
-    ko.components.register("vm-title", {
-        viewModel: { require: "components/titles/addTitle" },
-        template: { require: "text!components/titles/addTitle.html" }
-    });
-
     ko.components.register("vm-title-details", {
         viewModel: { require: "components/titles/titleDetails" },
         template: { require: "text!components/titles/titleDetails.html" }
