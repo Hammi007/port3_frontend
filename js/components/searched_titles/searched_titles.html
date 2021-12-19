@@ -8,13 +8,13 @@
         
         <div class="d-flex desc_container center" id="match" style="background-color: rgb(0, 0, 0);" data-bind="click: $component.titleDetails">
             
-            <img id="imd" width="260px" height="400px" data-bind="attr:{src: genres.$values[0].title.omdb.poster}" alt="">
+            <img id="imd" width="260px" height="400px" data-bind="attr:{src: omdb.poster}" alt="">
             <div style="background: rgba(0, 0, 0, 0.521);" id="cont">
                 <h4>
                     <span data-bind="text: originalTitle"></span>
                 </h4>   
 
-                <p data-bind="text: genres.$values[0].title.omdb.plot" id="plot"></p>
+                <p data-bind="text: omdb.plot" id="plot"></p>
                 
                 <div class="d-flex" id="info">
 
@@ -22,12 +22,13 @@
                         
                         <div id="director">
                             <h4>Director</h4>
-                            <p data-bind="text: genres.$values[0].title.director.person.personName"></p>
+                            <p data-bind="text: (director.person) ? director.person.personName : 'No director'"></p>
+
                         </div>
     
                         <div id="stars">
                             <h4>Stars: </h4>
-                            <ul data-bind="foreach: genres.$values[0].title.principal.$values">
+                            <ul data-bind="foreach: principal.$values">
                                 <li data-bind="text: person.personName" style="margin-right: 10px;"></li>
                             </ul>
                         </div>
@@ -39,21 +40,21 @@
                             </ul>
                         </div>
 
-                        <div id="director" style="margin-top: 10px;" data-bind="visible: genres.$values[0].title.omdb.awards != 'N/A'">
+                        <div id="director" style="margin-top: 10px;" data-bind="visible: omdb.awards != 'N/A'">
                             <h4>Awards:</h4>
-                            <p data-bind="text: genres.$values[0].title.omdb.awards"></p>
+                            <p data-bind="text: omdb.awards"></p>
                         </div>
                     </div>
     
                     <div id="votes_container">
                         <div>
                             <h4>Votes</h4>
-                            <p data-bind="text: genres.$values[0].title.titleRating.votes"></p>
+                            <p data-bind="text: titleRating.votes"></p>
                         </div>
 
                         <div>
                             <h4>Rating</h4>
-                            <p data-bind="text: genres.$values[0].title.titleRating.ratingAvg"></p>
+                            <p data-bind="text: titleRating.ratingAvg"></p>
                         </div>
 
                     </div>
