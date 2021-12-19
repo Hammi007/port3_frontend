@@ -38,6 +38,11 @@
                                 <li data-bind="text: genreName"></li>
                             </ul>
                         </div>
+
+                        <div id="director" style="margin-top: 10px;" data-bind="visible: genres.$values[0].title.omdb.awards != 'N/A'">
+                            <h4>Awards:</h4>
+                            <p data-bind="text: genres.$values[0].title.omdb.awards"></p>
+                        </div>
                     </div>
     
                     <div id="votes_container">
