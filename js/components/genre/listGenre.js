@@ -35,6 +35,7 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
         /* Trying to pupulate the page with selected genre titles */ 
 
         postman.subscribe("listTitlesByGenre", data => {
+            postman.publish("show_footer!", true)
             if(typeof(data) == "string"){
                 console.log("Set selected genre to: " + data)
                 selected_genre(data)

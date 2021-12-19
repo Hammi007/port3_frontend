@@ -3,9 +3,8 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
         let titleObject = ko.observable();
 
         postman.subscribe("titleDetails", data => {
-            console.log(data);
-
             ds.getTitle(data.titleId, setData);
+            postman.publish("show_footer!", false)
         });
 
         function setData(data) 

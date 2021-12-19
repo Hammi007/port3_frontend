@@ -180,14 +180,14 @@
     }
 
 
-    let getUser = (id, callback) => {
+    let getUser = (username, callback) => {
         let params = {
             method: "GET",
             headers: {
                 "Authorization": "Barer " + localStorage.getItem("token")
             }
         };
-        fetch("https://localhost:5001/api/users/get/"+ id, params)
+        fetch("https://localhost:5001/api/users/get/"+ username, params)
             .then(response => {
                 if (!response.ok) {
                     throw Error(response.statusText);
@@ -213,18 +213,11 @@
             }).then(json => callback(json));
     }
 
-
-    let getTitlesUrlWithPageSize = size => "https://localhost:5001/api/titles" + "?pageSize=" + size;
-
     let getGenres = (callback) => {
         fetch("https://localhost:5001/api/titles/genre") //ttasf1294qw1
             .then(response => response.json())
             .then(json => callback(json));
     }; 
-
-
-
-
 
     return {
         AddTitle,
@@ -243,7 +236,6 @@
         getUser,
         getCommentsById,
         search,
-        getTitlesUrlWithPageSize,
         getGenres
     }
 });

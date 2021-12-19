@@ -12,7 +12,7 @@
                  postman.publish("loggedIn", data)
               });
         });
-
+        postman.publish("show_footer!", false)
         let login = () => {
             let user = {
                 username: username(),

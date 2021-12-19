@@ -6,6 +6,8 @@
         let signedIn = ko.observable();
         let error = ko.observable();
 
+        postman.publish("show_footer!", false)
+
         let tryRegister = () => {
             let user = {
                 username: username(),

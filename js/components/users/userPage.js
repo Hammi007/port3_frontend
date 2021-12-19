@@ -50,6 +50,7 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
          };
 
         postman.subscribe("pageDetails", data => {
+            postman.publish("show_footer!", false)
             getUser(data)
         });
 

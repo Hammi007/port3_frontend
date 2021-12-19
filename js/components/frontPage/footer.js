@@ -8,8 +8,9 @@
         let searchfn = params.searchfn
         let selectedGenre = ko.observable();
         let pagenum = ko.observable();
+        let visible = ko.observable(true);
 
-        let showPrev = title => {
+        let showPrev = () => {
             let getData = searchfn.fn
             getData(prev());
             currentPage(prev())
@@ -17,20 +18,21 @@
 
         let enablePrev = ko.computed(() => prev() !== undefined);
 
-        let showNext = title => {
+        let showNext = () => {
             let getData = searchfn.fn
             getData(next());
             console.log(next())
             currentPage(next())
         }
 
-        let enableNext = ko.computed(() => next() !== undefined);
+        let enableNext = ko.computed(() => next() !== undefined || next());
 
 
         postman.subscribe("changePage", data => {
+            console.log(data.paging.previousPage.toString())
             prev(data.paging.previousPage || undefined);
             next(data.paging.nextPage || undefined);
-
+            
             const url = new URL(currentPage());
             const searchParams = new URLSearchParams(url.search);
             pagenum(parseInt(searchParams.get('page'))+1)
@@ -40,6 +42,7 @@
             const searchParams = new URLSearchParams(currentPage());
             searchParams.set('genre', selectedGenre())
         });
+
         selectedPageSize.subscribe(() => {
             let getData = searchfn.fn
             const searchParams = new URLSearchParams(currentPage());
@@ -55,7 +58,8 @@
             pagenum,
             enableNext,
             enablePrev,
-            currentPage
+            currentPage,
+            visible
         }
 
     };

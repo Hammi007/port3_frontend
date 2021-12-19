@@ -6,15 +6,17 @@
         let prev = ko.observable();
         let next = ko.observable();
         let searchfn = params.searchfn
+        let isVisible = ko.observable(true);
        
         let titleDetails = (data) => {
+
             postman.publish("titleDetails", data);
             postman.publish("changeView", "title-details");
         }
 
         getData = (url) =>{
-            console.log(url)
             ds.getTitles(url, data => {
+                console.log("callback")
                 prev(data.paging.previousPage || undefined);
                 next(data.paging.nextPage || undefined);
                 titles(data.data.$values);
@@ -25,6 +27,7 @@
         searchfn.fn = getData
 
         getData();
+        postman.publish("show_footer!", true)
         
         return {
             titles,
