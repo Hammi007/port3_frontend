@@ -180,14 +180,14 @@
     }
 
 
-    let getUser = (id, callback) => {
+    let getUser = (username, callback) => {
         let params = {
             method: "GET",
             headers: {
                 "Authorization": "Barer " + localStorage.getItem("token")
             }
         };
-        fetch("https://localhost:5001/api/users/get/"+ id, params)
+        fetch("https://localhost:5001/api/users/get/"+ username, params)
             .then(response => {
                 if (!response.ok) {
                     throw Error(response.statusText);
