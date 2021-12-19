@@ -1,4 +1,4 @@
-﻿define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
+﻿define(['knockout', 'postman'], function (ko, postman) {
     return function (params) {
         let pageSizes = ko.observableArray([10,20,25,100]);
         let selectedPageSize = ko.observableArray([10]);
