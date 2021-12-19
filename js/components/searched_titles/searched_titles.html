@@ -1,97 +1,20 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<link rel="stylesheet" href="../../../css/lib/bootstrap/dist/css/searched_titles.css">
-<style>
-    
-#imd{
-    background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAmOXK39y1kgHp4rnTsjrmR-CXYJBjytBUWlG4nK476p-Kqp4GW1IoUe82CLfvvvdKvc&usqp=CAU');  
-    background-repeat: no-repeat;
-    background-size: cover; 
-}
-
-
-.center{
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.desc_container{
-    width: 1000px;
-    height: auto;
-}
-
-.desc_container:hover{
-    cursor: pointer;
-}
-.desc_container div{
-    padding: 12px 20px;
-    color: white;
-}
-
-#votes_container div{
-    padding: 20px 20px;
-    color: white;
-}
-
-#mini_container{
-    justify-content: left;
-}
-
-#mini_container div{
-    padding: 0px;    
-}
-
-#info h4{
-    font-size: 15px;
-    font-weight: bold;
-}
-
-#director p{
-    font-size: 12px;
-}
-
-#stars{
- margin-bottom: 12px;
-}
-
-#mini_container ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row; 
-    flex-wrap: wrap;
-}
-
-#mini_container ul li{
-    margin-right: 5px; 
-    font-size: 12px;   
-    
-}   
-
-#match{
-    /*height: 400px;*/ /*matches poster height
-    overflow-y: hidden;*/
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border: 1px solid rgb(214, 121, 45); 
-    padding: 20px;
-}
-</style>
+<link rel="stylesheet" href="/css/lib/bootstrap/dist/css/searched_titles.css">
 
 <div data-bind="with: searched_titles">
     
-    <div data-bind="foreach: data.$values">
+    <div data-bind="foreach: data.$values" class="flex-container wrap">
         
         <div class="d-flex desc_container center" id="match" style="background-color: rgb(0, 0, 0);" data-bind="click: $component.titleDetails">
-        <img id="imd" width="260px" height="400px" data-bind="attr:{src: genres.$values[0].title.omdb.poster}" alt="">
             
-            <div style="background: rgba(0, 0, 0, 0.521);">
+            <img id="imd" width="260px" height="400px" data-bind="attr:{src: genres.$values[0].title.omdb.poster}" alt="">
+            <div style="background: rgba(0, 0, 0, 0.521);" id="cont">
                 <h4>
                     <span data-bind="text: originalTitle"></span>
                 </h4>   
 
-                <p data-bind="text: genres.$values[0].title.omdb.plot"></p>
+                <p data-bind="text: genres.$values[0].title.omdb.plot" id="plot"></p>
                 
                 <div class="d-flex" id="info">
 
@@ -120,12 +43,12 @@
                     <div id="votes_container">
                         <div>
                             <h4>Votes</h4>
-                            <p data-bind="text: genres.$values[0].title.titleRating.votes" style="font-size: 12px;"></p>
+                            <p data-bind="text: genres.$values[0].title.titleRating.votes"></p>
                         </div>
 
                         <div>
                             <h4>Rating</h4>
-                            <p data-bind="text: genres.$values[0].title.titleRating.ratingAvg" style="font-size: 12px;"></p>
+                            <p data-bind="text: genres.$values[0].title.titleRating.ratingAvg"></p>
                         </div>
 
                     </div>

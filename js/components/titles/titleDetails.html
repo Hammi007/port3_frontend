@@ -6,51 +6,98 @@
         background-repeat: no-repeat;
         background-size: cover; 
     }
+
+    
+
+    @media (max-width: 1500px) {
+
+        .title_player{
+            width: 100%;
+        }
+
+        .desc_container{
+            width: 100%;
+        }
+
+        #player_api{
+            width: 100%;
+            height: 100%;
+        }
+        
+        .desc_container h4{
+            font-size: 35px;
+        }
+        .desc_container{
+            font-size: 30px;
+        }
+
+        #mini_container ul li{
+            font-size: 30px;
+        }
+        
+        #mini_container h4{
+            font-size: 35px;
+        }
+        
+        #mini_container p{
+            font-size: 30px;
+        }
+
+        #imd{
+            width: 400px;
+            height: 600px;
+        }
+    }
 </style>
 
-<div data-bind="with: titleObject" class="title_player center">
-    <!-- <span class="iconify" id="icon_color" data-icon="el:play-alt" data-width="100"></span> -->
-    <iframe width="1400" height="720" data-bind="attr: {src: trailer_link}"></iframe>
-</div>
-
-<div class="desc_container center">    
-    <div class="d-flex" data-bind="with: titleObject">
-        <div> <!--poster--->
-            <img id="imd" width="240px" height="360px" data-bind="attr:{src: omdb.poster}" alt="">
-        </div>
-        
-        <div>
-            <div style="border-bottom: 1px solid rgba(204, 204, 204, 0.123); margin-bottom: 10px;">
-                <h4>
-                    <span data-bind="text: primaryTitle"></span>
-                </h4>
-                
-                <!------DESCRIPTION-------->
-                <p data-bind="text: omdb.plot"></p>
+<div id="fll">
+    <div data-bind="with: titleObject" class="title_player center">
+        <!-- <span class="iconify" id="icon_color" data-icon="el:play-alt" data-width="100"></span> -->
+        <iframe width="1400" height="720" data-bind="attr: {src: trailer_link}" id="player_api"></iframe>
+    </div>
+    
+    <div class="desc_container center">    
+        <div class="d-flex" data-bind="with: titleObject">
+            <div> <!--poster--->
+                <img id="imd" width="240px" height="360px" data-bind="attr:{src: omdb.poster}" alt="">
             </div>
-
-            <div id="mini_container">
-
-                <div id="director">
-                    <h4>Director</h4>
-                    <p data-bind="text: director.person.personName"></p>
+            
+            <div>
+                <div style="border-bottom: 1px solid rgba(204, 204, 204, 0.123); margin-bottom: 10px;">
+                    <h4>
+                        <span data-bind="text: primaryTitle"></span>
+                    </h4>
+                    
+                    <!------DESCRIPTION-------->
+                    <p data-bind="text: omdb.plot"></p>
                 </div>
-        
-                <div id="stars">
-                    <h4>Stars: </h4>
-                    <ul data-bind="foreach: principal.$values">
-                        <li data-bind="text: person.personName" style="margin-right: 10px;"></li>
-                    </ul>
-                </div>
-
-                <div id="genre">
-                    <h4>Genre:</h4>
-                    <ul data-bind="foreach: genres.$values">
-                        <li data-bind="text: genreName"></li>
-                    </ul>
+    
+                <div id="mini_container">
+    
+                    <div id="director">
+                        <h4>Director</h4>
+                        <p data-bind="text: director.person.personName"></p>
+                    </div>
+            
+                    <div id="stars">
+                        <h4>Stars: </h4>
+                        <ul data-bind="foreach: principal.$values">
+                            <li data-bind="text: person.personName" style="margin-right: 10px;"></li>
+                        </ul>
+                    </div>
+    
+                    <div id="genre">
+                        <h4>Genre:</h4>
+                        <ul data-bind="foreach: genres.$values">
+                            <li data-bind="text: genreName"></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
+
+
 

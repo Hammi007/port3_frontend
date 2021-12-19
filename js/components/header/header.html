@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(250, 164, 114, 0.966); font-size: 25px; font-weight:bold;">
+
+
+<nav class="navbar navbar-expand navbar-light" style="background-color: rgba(250, 164, 114, 0.966); font-size: 25px; font-weight:bold;" id="navbar">
     <!---fixed-top--->
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
@@ -49,8 +51,33 @@
 
 
 
-    <form class="d-inline-flex">
+    <form class="d-inline-flex" id="form_search">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" data-bind="textInput: $component.needle">
         <button class="btn btn-outline-light" type="submit" data-bind="click: search">Search</button>
     </form>
 </nav>
+
+
+
+
+<style>
+    @media (max-width: 1500px) {
+
+        #navbar{
+            flex-direction: column;
+        }
+
+        #navbar li a{
+            font-size: 40px;
+            
+        }
+
+        #form_search{
+            margin-top: 10px;
+        }
+        #form_search input{
+            padding: 15px;
+
+        }
+    }
+</style>
