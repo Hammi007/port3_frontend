@@ -17,19 +17,19 @@
 
 <div class="flex-container wrap" data-bind = "foreach: titles">
     <div class="title_container" data-bind="click: $component.titleDetails, title : titleId">       
-        <img id=imd width="200px" height="300" data-bind= "attr: {src: omdb.poster, click : $component.titleDetails}">
+        <img id=imd width="240px" height="300px" data-bind= "attr: {src: omdb.poster, click : $component.titleDetails}">
 
         <p class="bottom-0" style="text-align:center; margin-top: 15px; font-weight:bold; border-top: 2px solid white; padding-top: 10px"></p>
 
-        <span data-bind="text: originalTitle" style="font-weight: bold; font-size: 14px;"></span>
+        <span id="title" data-bind="text: originalTitle"></span>
         
-        <div style="font-size: 12px;">
-            <p data-bind="text: titleType.toUpperCase()" style="margin: 10px 0px;"></p>
-            <span data-bind="text: titleRating.ratingAvg"></span>/10
+        <div id="m_rate">
+            <p id="m_type" data-bind="text: titleType.toUpperCase()" style="margin: 10px 0px;"></p>
+            <span id="m_rate" data-bind="text: titleRating.ratingAvg"></span>/10
             <span class="iconify" data-icon="ant-design:star-filled" style="color: gold; padding-top: 2px;"></span>
             <div class="d-flex justify-content-center" style="margin-top: 5px;">
-                <p style="font-weight: bold; margin-right: 6px;">Votes:   </p> 
-                <span data-bind="text: titleRating.votes" style="font-style: bold;"></span>
+                <p id="m_type" style="font-weight: bold; margin-right: 6px;">Votes:   </p> 
+                <span id="m_type" data-bind="text: titleRating.votes" style="font-style: bold; letter-spacing: 1px;"></span>
             </div>
         </div> 
     </div>
