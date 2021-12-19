@@ -1,8 +1,8 @@
 ﻿define(['knockout', 'dataService', 'postman'], function (ko, ds, postman) {
     return function (params) {
         let addTitle = () => postman.publish("changeView", "add-title");
-        let loginView = () => postman.publish("changeView", "add-login");
-        let registerView = () => postman.publish("changeView", "add-register");
+        let loginView = () => postman.publish("changeView", "vm-login");
+        let registerView = () => postman.publish("changeView", "vm-register");
         let signedIn = ko.observable();
         let username = ko.observable();
         let genre = ko.observable();
@@ -27,7 +27,7 @@
 
         let search = (data) => {
             postman.publish("search-title", needle._latestValue);
-            postman.publish("changeView", "search-title-view"); //component for searched titles.
+            postman.publish("changeView", "vm-search-title-view"); //component for searched titles.
         }
         
         postman.subscribe("newTitle", title => {
@@ -56,12 +56,12 @@
         let pageDetails = (data) => {
             postman.publish("pageDetails", data);
             console.log(data)
-            postman.publish("changeView", "add-userpage");
+            postman.publish("changeView", "vm-userpage");
          }
 
         let listGenre = (data, event) => {
             postman.publish("listTitlesByGenre", event.target.id);
-            postman.publish("changeView", "list-genre");
+            postman.publish("changeView", "vm-list-genre");
             console.log(event.target.id)
             console.log(data);
         }

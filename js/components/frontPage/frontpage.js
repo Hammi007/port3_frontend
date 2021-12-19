@@ -10,7 +10,7 @@
        
         let titleDetails = (data) => {
             postman.publish("titleDetails", data);
-            postman.publish("changeView", "title-details");
+            postman.publish("changeView", "vm-title-details");
         }
 
         getData = (url) =>{
