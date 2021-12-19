@@ -20,7 +20,7 @@
                 ds.register(user, data => {
                     if(data.created_user !== undefined){
                         postman.publish("registeredIn", user)
-                        postman.publish("changeView", "add-login");
+                        postman.publish("changeView", "vm-login");
                     } else {
                         error(data)
                     }

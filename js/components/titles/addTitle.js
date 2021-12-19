@@ -6,14 +6,14 @@ define(['knockout', 'dataService', 'postman'], function (ko, ds, postman){
         
 
         let cancelAddTitle = () => {
-            postman.publish("changeView", "add-frontpage");
+            postman.publish("changeView", "vm-frontpage");
         }
 
         let addTitle = () => {
             console.log("addTitleee");
             postman.publish("newTitle", { titleId: titleID(), OriginalTitle: Name(), TitleType: Type() });
             console.log("addTitle")
-            postman.publish("changeView", "add-frontpage");
+            postman.publish("changeView", "vm-frontpage");
         }
 
         return {
